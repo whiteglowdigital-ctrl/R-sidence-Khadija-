@@ -1,0 +1,906 @@
+<title>Hôtel Résidence Khadija · Thiès</title>
+<meta name="description" content="Hôtel à Thiès, quartier Grand Standing : 32 chambres dont 6 suites, piscine à deux bassins, rooftop, restaurants et trois salles de séminaire. Demandez vos disponibilités.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&family=Tenor+Sans&display=swap">
+<style>
+/* Layout : bandes photographiques pleine largeur alternées avec des sections ivoire éditoriales ; contenu sur une colonne de 1240px.
+   Palette tirée du logo : cuivre du monogramme HRK + olive profond du médaillon. Look unique assumé (pas de thème sombre alternatif). */
+:root{
+  --ink:#15140A; --olive:#22210F; --olive-2:#2E2C14; --copper:#D8843A; --copper-soft:#E9A566; --copper-ink:#9A5419;
+  --ivory:#F7F4EC; --paper:#FFFDF8; --line:#E4DCC9; --text:#2A281A; --muted:#6C6750;
+  --on-dark:#F4EEE2; --on-dark-muted:#BDB59C; --line-dark:rgba(244,238,226,.14);
+  --f-display:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-label:"Tenor Sans",Optima,Candara,"Segoe UI",sans-serif;
+  --f-body:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --gutter:clamp(16px,4vw,40px); --maxw:1240px; --radius:4px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+body{background:var(--ivory);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.65;margin:0;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(34px,4.4vw,56px)}
+h3{font-size:clamp(24px,2.2vw,30px)}
+p{margin:0}
+.wrap{width:min(var(--maxw),100% - 2*var(--gutter));margin-inline:auto}
+.eyebrow{font-family:var(--f-label);font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper-ink);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.dark .eyebrow,.on-image .eyebrow{color:var(--copper-soft)}
+.lead{font-size:clamp(16.5px,1.25vw,18px);color:var(--muted);max-width:60ch}
+.dark .lead{color:var(--on-dark-muted)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:var(--radius);border:1px solid transparent;font-family:var(--f-label);font-size:13px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease)}
+.btn .ico{width:17px;height:17px;transition:transform .3s var(--ease)}
+.btn:hover .ico{transform:translateX(3px)}
+.btn-primary{background:var(--copper);color:var(--ink)}
+.btn-primary:hover{background:var(--copper-soft)}
+.btn-ghost{border-color:rgba(244,238,226,.5);color:var(--on-dark)}
+.btn-ghost:hover{border-color:var(--on-dark);background:rgba(244,238,226,.08)}
+.btn-line{border-color:var(--copper);color:var(--copper-ink);background:transparent}
+.btn-line:hover{background:var(--copper);color:var(--ink)}
+.dark .btn-line{color:var(--copper-soft)}
+.dark .btn-line:hover{color:var(--ink)}
+.link{font-family:var(--f-label);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper-ink);text-decoration:none;display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid currentColor;padding-bottom:4px;background:none;border-top:0;border-left:0;border-right:0}
+.dark .link{color:var(--copper-soft)}
+
+/* Médias (photo ou illustration) */
+.media{position:relative;overflow:hidden;background:var(--olive)}
+.media>svg,.media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.media-note{position:absolute;right:10px;bottom:10px;font-family:var(--f-label);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,238,226,.85);background:rgba(21,20,10,.55);padding:4px 8px;border-radius:2px;backdrop-filter:blur(4px);pointer-events:none}
+
+/* En-tête */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--on-dark);padding-top:env(safe-area-inset-top,0px);transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+.topbar{border-bottom:1px solid var(--line-dark);font-size:13px;color:var(--on-dark-muted);overflow:hidden;max-height:44px;transition:max-height .4s var(--ease),opacity .3s}
+.topbar .wrap{display:flex;gap:28px;align-items:center;min-height:42px}
+.topbar span,.topbar a{display:inline-flex;gap:8px;align-items:center;text-decoration:none}
+.topbar .ico{width:15px;height:15px;color:var(--copper-soft)}
+.topbar .push{margin-left:auto}
+.nav{display:flex;align-items:center;gap:24px;min-height:78px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.brand svg{width:52px;height:44px}
+.brand-words{display:flex;flex-direction:column;line-height:1.05;font-family:var(--f-label);text-transform:uppercase}
+.brand-words small{font-size:9.5px;letter-spacing:.3em;color:var(--on-dark-muted)}
+.brand-words strong{font-weight:400;font-size:19px;letter-spacing:.2em}
+.nav-links{display:flex;gap:30px;margin-left:auto;list-style:none;padding:0;margin-block:0}
+.nav-links a{font-family:var(--f-label);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:8px 0;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:var(--copper);transform:scaleX(0);transition:transform .35s var(--ease);transform-origin:left}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav .btn{min-height:42px;padding:0 20px}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line-dark);border-radius:var(--radius);width:46px;height:46px;align-items:center;justify-content:center}
+.site-header.scrolled{background:rgba(21,20,10,.94);box-shadow:0 10px 30px rgba(0,0,0,.18);backdrop-filter:blur(10px)}
+.site-header.scrolled .topbar{max-height:0;opacity:0;border-color:transparent}
+.site-header.scrolled .nav{min-height:66px}
+
+/* Menu mobile */
+.menu{position:fixed;inset:0;z-index:60;background:var(--ink);color:var(--on-dark);display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 18px) var(--gutter) calc(env(safe-area-inset-bottom,0px) + 28px);transform:translateY(-100%);transition:transform .5s var(--ease);visibility:hidden}
+.menu.open{transform:none;visibility:visible}
+.menu-head{display:flex;justify-content:space-between;align-items:center}
+.menu nav{margin-top:40px;display:grid;gap:6px}
+.menu nav a{font-family:var(--f-display);font-size:38px;text-decoration:none;padding:4px 0;border-bottom:1px solid var(--line-dark)}
+.menu-foot{margin-top:auto;display:grid;gap:10px;color:var(--on-dark-muted);font-size:15px}
+.menu-foot .btn{margin-top:12px}
+
+/* Hero */
+.hero{position:relative;color:var(--on-dark);background:var(--ink);min-height:clamp(640px,92svh,900px);display:flex;flex-direction:column;justify-content:flex-end}
+.hero>.media{position:absolute;inset:0}
+.hero>.media .media-note{bottom:auto;top:132px}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,14,7,.86) 0%,rgba(15,14,7,.5) 42%,rgba(15,14,7,0) 70%),linear-gradient(0deg,rgba(15,14,7,.75) 0%,rgba(15,14,7,0) 38%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;padding-top:160px;padding-bottom:56px}
+.hero h1{font-size:clamp(46px,7.4vw,104px);font-weight:500;max-width:11ch;margin-top:22px}
+.hero h1 em{font-style:italic;color:var(--copper-soft);font-weight:500}
+.hero .lead{color:rgba(244,238,226,.82);margin-top:22px;max-width:46ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-rule{display:flex;align-items:center;gap:14px;margin-top:22px;color:var(--copper-soft)}
+.hero-rule::before,.hero-rule::after{content:"";height:1px;width:56px;background:currentColor;opacity:.6}
+.hero-rule svg{width:28px;height:18px}
+
+/* Barre de réservation */
+.booking{position:relative;z-index:3;margin-bottom:-58px}
+.booking form{background:var(--paper);color:var(--text);border-radius:6px;box-shadow:0 24px 60px rgba(21,20,10,.28);display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;align-items:stretch}
+.bfield{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:16px 22px;border-right:1px solid var(--line);min-width:0}
+.bfield label{font-family:var(--f-label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;align-items:center}
+.bfield label .ico{width:15px;height:15px;color:var(--copper-ink)}
+.bfield input,.bfield select{border:0;background:transparent;font:500 16px var(--f-body);color:var(--text);padding:4px 0;width:100%;min-width:0;appearance:none;-webkit-appearance:none}
+.bfield select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239A5419' stroke-width='1.6'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right center;background-size:16px;padding-right:22px}
+.booking .btn{margin:10px;border-radius:4px;min-height:auto;padding:0 26px}
+.booking-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:12px}
+
+/* Sections */
+section{position:relative}
+.section{padding-block:clamp(84px,10vw,140px)}
+.dark{background:var(--olive);color:var(--on-dark)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,56px)}
+.head>div{display:grid;gap:18px;max-width:640px;min-width:0}
+.head>.arrows,.head>.filters{display:flex}
+
+/* Introduction */
+.intro{padding-top:clamp(130px,14vw,190px)}
+.intro-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center}
+.intro-text{display:grid;gap:22px}
+.intro-text p{color:var(--muted);max-width:56ch}
+.intro-text p:first-of-type{color:var(--text);font-size:18px}
+.place{display:flex;gap:10px;align-items:center;color:var(--text);font-size:15px}
+.place .ico{color:var(--copper-ink)}
+.collage{position:relative;padding:0 0 60px 60px}
+.collage .main{aspect-ratio:5/4;border-radius:2px}
+.collage .inset{position:absolute;left:0;bottom:0;width:44%;aspect-ratio:1;border:8px solid var(--ivory);border-radius:2px}
+.collage::before{content:"";position:absolute;top:-22px;right:-22px;width:40%;height:50%;border:1px solid var(--copper);opacity:.55}
+.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(56px,7vw,88px);border-top:1px solid var(--line)}
+.figures div{padding:26px 22px 0 0;display:grid;gap:4px}
+.figures div+div{padding-left:22px;border-left:1px solid var(--line)}
+.figures strong{font-family:var(--f-display);font-weight:500;font-size:clamp(44px,4.6vw,64px);line-height:1;color:var(--copper-ink);font-variant-numeric:tabular-nums}
+.figures span{color:var(--muted);font-size:15px}
+
+/* Chambres */
+.rooms{background:var(--olive);overflow:hidden}
+.rooms::before{content:"";position:absolute;right:-12%;top:-30%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(216,132,58,.14),transparent);pointer-events:none}
+.arrows{display:flex;gap:10px}
+.arrow{width:50px;height:50px;border-radius:50%;border:1px solid var(--line-dark);background:transparent;color:var(--on-dark);display:inline-flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s}
+.arrow:hover:not(:disabled){background:var(--copper);border-color:var(--copper);color:var(--ink)}
+.arrow:disabled{opacity:.35;cursor:default}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(272px,29%,360px);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.room{scroll-snap-align:start;background:var(--paper);color:var(--text);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.room:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.3)}
+.room:hover .media>svg,.room:hover .media>img{transform:scale(1.045)}
+.room .media{aspect-ratio:4/3}
+.tag{position:absolute;left:14px;top:14px;z-index:2;font-family:var(--f-label);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;background:var(--paper);color:var(--text);padding:6px 10px;border-radius:2px}
+.tag.suite{background:var(--copper);color:var(--ink)}
+.room-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.room-body p{color:var(--muted);font-size:15px;min-height:3.3em}
+.room-foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.price small{display:block;font-family:var(--f-label);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.price strong{font-family:var(--f-display);font-size:25px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price strong span{font-family:var(--f-body);font-size:13px;font-weight:400;color:var(--muted)}
+.price.ask strong{font-size:20px;font-style:italic;font-weight:500}
+.room .btn{min-height:40px;padding:0 16px;font-size:11.5px}
+.rooms-foot{margin-top:40px;display:flex;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;color:var(--on-dark-muted);font-size:14px}
+.common{display:flex;flex-wrap:wrap;gap:10px 26px;list-style:none;padding:0;margin:0}
+.common li{display:inline-flex;gap:8px;align-items:center;color:var(--on-dark)}
+.common .ico{width:16px;height:16px;color:var(--copper-soft)}
+
+/* Piscine (bande immersive) */
+.pool{min-height:clamp(560px,88svh,820px);display:flex;align-items:flex-end;color:var(--on-dark);background:var(--ink)}
+.pool>.media{position:absolute;inset:0}
+.pool::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,14,7,.8),rgba(15,14,7,0) 55%);pointer-events:none}
+.pool .wrap{position:relative;z-index:2;padding-block:clamp(40px,6vw,72px)}
+.glass{max-width:520px;display:grid;gap:18px;padding:clamp(26px,3vw,40px);background:rgba(21,20,10,.55);border:1px solid rgba(244,238,226,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:4px}
+.glass p{color:rgba(244,238,226,.82)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.chips li{border:1px solid rgba(244,238,226,.25);border-radius:40px;padding:6px 14px;font-size:13.5px}
+.light .chips li{border-color:var(--line);color:var(--text);background:var(--paper)}
+
+/* Rooftop & restauration */
+.duo{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(36px,6vw,90px);align-items:center}
+.duo+.duo{margin-top:clamp(80px,10vw,130px)}
+.duo.flip{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.duo.flip .duo-media{order:2}
+.duo-media{position:relative}
+.duo-media .media{aspect-ratio:4/3;border-radius:2px}
+.duo-media .tall{aspect-ratio:5/4}
+.duo-media .float{position:absolute;right:-24px;bottom:-40px;width:42%;aspect-ratio:4/5;border:8px solid var(--ivory)}
+.duo-text{display:grid;gap:20px;min-width:0}
+.duo-text p{color:var(--muted)}
+.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:6px}
+.stats div{padding:16px 0;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:10px}
+.stats div:nth-child(odd){padding-right:14px}
+.stats div:nth-child(even){padding-left:14px;border-left:1px solid var(--line)}
+.stats strong{font-family:var(--f-display);font-size:34px;font-weight:500;color:var(--copper-ink);line-height:1}
+.stats span{font-size:15px}
+
+/* Services */
+.services{background:var(--paper);border-block:1px solid var(--line)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.svc{padding:26px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:center;transition:background .35s var(--ease)}
+.svc:hover{background:var(--ivory)}
+.svc .ico{grid-row:span 2;width:30px;height:30px;color:var(--copper-ink);stroke-width:1.3}
+.svc strong{font-weight:500;font-size:16px}
+.svc span{font-size:13.5px;color:var(--muted)}
+
+/* Séminaires */
+.meet{background:var(--ink)}
+.meet-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:start}
+.meet-media{position:relative;padding-bottom:70px}
+.meet-media .media:first-child{aspect-ratio:4/5}
+.meet-media .float{position:absolute;right:-20px;bottom:0;width:55%;aspect-ratio:4/3;border:8px solid var(--ink)}
+.meet-text{display:grid;gap:22px;min-width:0}
+.caps{list-style:none;padding:0;margin:8px 0 0;border-top:1px solid var(--line-dark)}
+.caps li{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line-dark)}
+.caps strong{font-family:var(--f-display);font-weight:500;font-size:52px;line-height:1;color:var(--copper-soft);font-variant-numeric:tabular-nums}
+.caps strong.none{font-size:22px;font-style:italic;color:var(--on-dark-muted)}
+.caps b{font-weight:500;font-size:18px;display:block}
+.caps span{color:var(--on-dark-muted);font-size:14.5px}
+.meet .note{font-size:14.5px;color:var(--on-dark-muted)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+
+/* Galerie */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{border:1px solid var(--line);background:var(--paper);border-radius:40px;padding:8px 16px;font-size:14px;transition:background .3s,color .3s,border-color .3s}
+.filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--on-dark)}
+.filter:hover:not([aria-pressed="true"]){border-color:var(--copper)}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,17vw,230px);grid-auto-flow:dense;gap:14px}
+.g-item{position:relative;border:0;padding:0;border-radius:2px;overflow:hidden;background:var(--olive);text-align:left}
+.g-item .media{position:absolute;inset:0}
+.g-item.wide{grid-column:span 2}
+.g-item.tall{grid-row:span 2}
+.g-item.big{grid-column:span 2;grid-row:span 2}
+.g-item:hover .media>svg,.g-item:hover .media>img{transform:scale(1.05)}
+.g-cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(0deg,rgba(15,14,7,.8),transparent);color:var(--on-dark);font-size:14px;display:flex;justify-content:space-between;gap:10px;align-items:flex-end;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s var(--ease)}
+.g-cap em{font-family:var(--f-label);font-style:normal;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper-soft)}
+.g-item:hover .g-cap,.g-item:focus-visible .g-cap{opacity:1;transform:none}
+@media (hover:none){.g-cap{opacity:1;transform:none}}
+.g-item.out{display:none}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,9,5,.94);display:grid;grid-template-rows:auto 1fr auto;padding:calc(env(safe-area-inset-top,0px) + 14px) var(--gutter) calc(env(safe-area-inset-bottom,0px) + 18px);color:var(--on-dark)}
+.lb-top{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--on-dark-muted)}
+.lb-stage{display:flex;align-items:center;justify-content:center;min-height:0;padding-block:14px}
+.lb-stage .media{width:min(1200px,100%);aspect-ratio:16/10;max-height:100%;border-radius:2px}
+.lb-bottom{display:flex;justify-content:center;gap:14px}
+.icon-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-dark);background:transparent;color:var(--on-dark);display:inline-flex;align-items:center;justify-content:center}
+.icon-btn:hover{border-color:var(--copper);color:var(--copper-soft)}
+
+/* Réservation & contact */
+.contact{background:var(--ink)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:start}
+.panel{background:var(--paper);color:var(--text);border-radius:6px;padding:clamp(22px,3.4vw,44px);box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.steps{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;list-style:none;padding:0}
+.steps li{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-label);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.steps li b{width:24px;height:24px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-weight:400;font-family:var(--f-body);letter-spacing:0}
+.steps li.on{color:var(--text)}
+.steps li.on b{background:var(--copper);border-color:var(--copper);color:var(--ink)}
+.steps li+li::before{content:"";width:22px;height:1px;background:var(--line)}
+.seg{display:inline-grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:40px;padding:4px;margin-bottom:22px;gap:4px}
+.seg button{border:0;background:transparent;border-radius:40px;padding:9px 18px;font-size:14.5px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--on-dark)}
+fieldset{border:0;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+fieldset+fieldset{margin-top:26px}
+legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom:14px;padding:0}
+.f{display:grid;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font-size:13.5px;color:var(--muted)}
+.f input,.f select,.f textarea{width:100%;border:1px solid var(--line);background:var(--ivory);border-radius:4px;padding:12px 14px;font:16px var(--f-body);color:var(--text);min-width:0}
+.f textarea{min-height:104px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--copper);box-shadow:0 0 0 3px rgba(216,132,58,.18)}
+.f .err{color:#A2371B;font-size:13px}
+.form-foot{margin-top:26px;display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.form-foot small{color:var(--muted);font-size:13px;max-width:40ch}
+.summary{display:grid;gap:18px}
+.summary dl{display:grid;grid-template-columns:auto 1fr;gap:10px 22px;margin:0;padding:18px 0;border-block:1px solid var(--line)}
+.summary dt{color:var(--muted);font-size:14px}
+.summary dd{margin:0;font-weight:500;min-width:0}
+.summary textarea{width:100%;min-height:150px;border:1px solid var(--line);border-radius:4px;background:var(--ivory);padding:12px 14px;font:14px/1.6 var(--f-body);color:var(--text);resize:vertical}
+.summary .note{font-size:13.5px;color:var(--muted)}
+.side{display:grid;gap:18px;color:var(--on-dark)}
+.side .media{aspect-ratio:16/10;border-radius:4px}
+.cblock{border-top:1px solid var(--line-dark);padding-top:18px;display:grid;gap:12px}
+.cblock h3{font-family:var(--f-label);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper-soft)}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:0}
+.crow>div{min-width:0}
+.crow small{display:block;color:var(--on-dark-muted);font-size:13px}
+.crow a,.crow b{font-weight:500;font-size:17px;text-decoration:none;overflow-wrap:anywhere}
+.crow a:hover{color:var(--copper-soft)}
+.copy{flex:none;border:1px solid var(--line-dark);background:transparent;color:var(--on-dark-muted);border-radius:40px;padding:6px 12px;font-size:12.5px;display:inline-flex;gap:6px;align-items:center}
+.copy:hover{color:var(--on-dark);border-color:var(--on-dark-muted)}
+.copy .ico{width:14px;height:14px}
+.panel .copy{color:var(--muted);border-color:var(--line)}
+
+/* Pied de page */
+.footer{background:#0E0D07;color:var(--on-dark-muted);padding-block:64px 28px;font-size:14.5px}
+.f-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr);gap:40px}
+.f-grid h3{font-family:var(--f-label);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark);margin-bottom:16px}
+.f-grid ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.f-grid a{text-decoration:none}
+.f-grid a:hover{color:var(--copper-soft)}
+.f-brand p{margin-top:18px;max-width:34ch}
+.f-bottom{margin-top:48px;padding-top:22px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;gap:12px 30px;flex-wrap:wrap;font-size:13px}
+
+/* Barre mobile + toast */
+.mbar{display:none}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translate(-50%,20px);z-index:90;background:var(--ink);color:var(--on-dark);border:1px solid rgba(216,132,58,.5);padding:12px 18px;border-radius:40px;font-size:14.5px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Apparition au scroll : seuls les éléments sous la ligne de flottaison sont masqués au départ */
+.pre{opacity:0;transform:translateY(28px)}
+.reveal{transition:opacity 1s var(--ease),transform 1s var(--ease)}
+
+/* Responsive */
+@media (max-width:1080px){
+  .nav-links,.nav>.btn{display:none}
+  .burger{display:inline-flex}
+  .booking form{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bfield:nth-child(2n){border-right:0}
+  .bfield{border-bottom:1px solid var(--line)}
+  .booking .btn{grid-column:1/-1;min-height:52px}
+  .svc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .topbar{display:none}
+  .intro-grid,.duo,.duo.flip,.meet-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}
+  .duo.flip .duo-media{order:0}
+  .figures{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .figures div:nth-child(3){padding-left:0;border-left:0}
+  .figures div:nth-child(n+3){border-top:1px solid var(--line);margin-top:22px}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(140px,38vw,220px)}
+  .meet-media{max-width:560px}
+  .duo-media .float{right:0}
+  .meet-media .float{right:0}
+}
+@media (max-width:640px){
+  body{font-size:15.5px;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 72px)}
+  .brand svg{width:44px;height:38px}
+  .brand-words strong{font-size:16px}
+  .nav{min-height:66px}
+  .hero{min-height:auto}
+  .hero-inner{padding-top:128px;padding-bottom:34px}
+  .hero>.media .media-note{top:86px}
+  .hero-ctas .btn{flex:1 1 auto}
+  .booking{margin-bottom:0;padding-bottom:28px}
+  .booking form{grid-template-columns:1fr 1fr}
+  .bfield{padding:12px 14px}
+  .booking-meta{color:var(--on-dark-muted)}
+  .intro{padding-top:72px}
+  .collage{padding:0 0 40px 34px}
+  .collage::before{right:0;top:-12px}
+  .track{grid-auto-columns:82%;margin-right:calc(-1*var(--gutter));padding-right:var(--gutter)}
+  .head>.arrows{display:none}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc{grid-template-columns:1fr;padding:20px 16px;gap:6px}
+  .svc .ico{grid-row:auto}
+  .stats{grid-template-columns:1fr 1fr}
+  .caps li{grid-template-columns:86px 1fr}
+  .caps strong{font-size:40px}
+  fieldset{grid-template-columns:1fr 1fr}
+  .f.half-m{grid-column:1/-1}
+  .f-grid{grid-template-columns:1fr}
+  .gallery{gap:8px}
+  .g-item.big{grid-column:span 2;grid-row:span 1}
+  .g-item.tall{grid-row:span 1}
+  .mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(env(safe-area-inset-bottom,0px) + 10px);background:rgba(21,20,10,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line-dark)}
+  .mbar .btn{min-height:48px;padding:0 12px}
+  .toast{bottom:calc(env(safe-area-inset-bottom,0px) + 86px)}
+}
+@media (max-width:380px){
+  .booking form,fieldset{grid-template-columns:1fr}
+  .bfield{border-right:0}
+}
+</style>
+
+<a class="sr-only" href="#contenu">Aller au contenu</a>
+
+<header class="site-header" id="top">
+  <div class="topbar"><div class="wrap" id="topbar"></div></div>
+  <div class="wrap nav">
+    <a class="brand" href="#top" id="brand" aria-label="Hôtel Résidence Khadija, retour en haut"></a>
+    <ul class="nav-links">
+      <li><a href="#chambres">Chambres</a></li>
+      <li><a href="#experiences">Expériences</a></li>
+      <li><a href="#seminaires">Séminaires</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#reservation">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#reservation">Réserver</a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><svg class="ico" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M9 17h12"/></svg></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-head"><span class="brand" id="brand-menu"></span><button class="icon-btn" id="menu-close" aria-label="Fermer le menu"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <nav aria-label="Menu mobile">
+    <a href="#chambres">Chambres & suites</a>
+    <a href="#experiences">Expériences</a>
+    <a href="#seminaires">Séminaires</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#reservation">Contact</a>
+  </nav>
+  <div class="menu-foot" id="menu-foot"></div>
+</div>
+
+<main id="contenu">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="media" data-img="hero" data-note="1"></div>
+    <div class="wrap hero-inner on-image">
+      <span class="eyebrow" id="hero-eyebrow"></span>
+      <h1 id="hero-title"></h1>
+      <p class="lead" id="hero-sub"></p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#reservation">Réserver votre séjour <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#hotel">Découvrir l'hôtel</a>
+      </div>
+    </div>
+    <div class="wrap booking">
+      <form id="bookbar" aria-label="Demande de disponibilité rapide" novalidate>
+        <div class="bfield"><label for="bb-in"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Arrivée</label><input type="date" id="bb-in" required></div>
+        <div class="bfield"><label for="bb-out"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Départ</label><input type="date" id="bb-out" required></div>
+        <div class="bfield"><label for="bb-guests"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg>Voyageurs</label><select id="bb-guests"></select></div>
+        <div class="bfield"><label for="bb-room"><svg class="ico" viewBox="0 0 24 24"><path d="M3 18V8M21 18v-5a3 3 0 0 0-3-3H10v8M3 14h18M6.5 12a1.5 1.5 0 1 0 0-3"/></svg>Chambre</label><select id="bb-room"></select></div>
+        <button class="btn btn-primary" type="submit">Demander une disponibilité</button>
+      </form>
+      <div class="booking-meta"><span id="bb-nights"></span><span>Sans paiement en ligne. L'hôtel confirme la disponibilité.</span></div>
+    </div>
+  </section>
+
+  <section class="section intro" id="hotel" aria-labelledby="intro-title">
+    <div class="wrap">
+      <div class="intro-grid">
+        <div class="intro-text" data-reveal>
+          <span class="eyebrow" id="intro-eyebrow"></span>
+          <h2 id="intro-title"></h2>
+          <div id="intro-paras" style="display:grid;gap:16px"></div>
+          <p class="place" id="intro-place"></p>
+          <div><a class="link" href="#chambres">Voir les chambres <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+        <div class="collage" data-reveal>
+          <div class="media main" data-img="introA" data-note="1"></div>
+          <div class="media inset" data-img="introB"></div>
+        </div>
+      </div>
+      <div class="figures" id="figures" data-reveal></div>
+    </div>
+  </section>
+
+  <section class="section rooms dark" id="chambres" aria-labelledby="rooms-title">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Chambres & suites</span><h2 id="rooms-title">32 chambres, dont 6 suites</h2><p class="lead">Six catégories, de la Chambre Standard à la Suite Senior. Choisissez une catégorie, l'hôtel vous répond avec les disponibilités et le tarif du moment.</p></div>
+        <div class="arrows"><button class="arrow" id="r-prev" aria-label="Chambres précédentes"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button class="arrow" id="r-next" aria-label="Chambres suivantes"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      </div>
+      <div class="track" id="rooms-track" tabindex="0" aria-label="Catégories de chambres, défilement horizontal"></div>
+      <div class="rooms-foot"><ul class="common" id="rooms-common" aria-label="Dans toutes les chambres"></ul><p id="price-note"></p></div>
+    </div>
+  </section>
+
+  <section class="pool" id="experiences" aria-labelledby="pool-title">
+    <div class="media" data-img="pool" data-note="1"></div>
+    <div class="wrap on-image">
+      <div class="glass" data-reveal>
+        <span class="eyebrow" id="pool-eyebrow"></span>
+        <h2 id="pool-title"></h2>
+        <p id="pool-text"></p>
+        <ul class="chips" id="pool-points"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" aria-label="Rooftop et restauration">
+    <div class="wrap">
+      <div class="duo" data-reveal>
+        <div class="duo-media"><div class="media tall" data-img="rooftop" data-note="1"></div></div>
+        <div class="duo-text">
+          <span class="eyebrow" id="roof-eyebrow"></span>
+          <h2 id="roof-title"></h2>
+          <p id="roof-text"></p>
+          <div><a class="link" href="#reservation">Réserver une chambre <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </div>
+      <div class="duo flip" data-reveal>
+        <div class="duo-media"><div class="media" data-img="restaurant" data-note="1"></div><div class="media float" data-img="bar"></div></div>
+        <div class="duo-text">
+          <span class="eyebrow" id="dine-eyebrow"></span>
+          <h2 id="dine-title"></h2>
+          <p id="dine-text"></p>
+          <div class="stats" id="dine-items"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" aria-labelledby="svc-title">
+    <div class="wrap">
+      <div class="head"><div><span class="eyebrow">Services & équipements</span><h2 id="svc-title">Tout ce que l'hôtel met à votre disposition</h2></div></div>
+      <div class="svc-grid" id="svc-grid" data-reveal></div>
+    </div>
+  </section>
+
+  <section class="section meet dark" id="seminaires" aria-labelledby="meet-title">
+    <div class="wrap meet-grid">
+      <div class="meet-media" data-reveal>
+        <div class="media" data-img="seminar" data-note="1"></div>
+        <div class="media float" data-img="seminarBoard"></div>
+      </div>
+      <div class="meet-text" data-reveal>
+        <span class="eyebrow" id="meet-eyebrow"></span>
+        <h2 id="meet-title"></h2>
+        <p class="lead" id="meet-text"></p>
+        <ul class="caps" id="meet-rooms"></ul>
+        <p class="note" id="meet-total"></p>
+        <ul class="chips" id="meet-formats"></ul>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="button" data-event>Organiser un événement <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <a class="btn btn-line" href="#reservation" id="meet-mail">Demander une information</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="galerie" aria-labelledby="gal-title">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Galerie</span><h2 id="gal-title">L'hôtel en images</h2></div>
+        <div class="filters" id="filters" role="group" aria-label="Filtrer la galerie"></div>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <section class="section contact dark" id="reservation" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="head"><div><span class="eyebrow">Réservation & contact</span><h2 id="contact-title">Demander une disponibilité</h2><p class="lead">Indiquez vos dates et la catégorie souhaitée. Votre demande est mise en forme pour l'équipe de l'hôtel, qui vous confirme la disponibilité et le tarif.</p></div></div>
+      <div class="contact-grid">
+        <div class="panel" id="panel">
+          <ol class="steps" id="steps"><li class="on"><b>1</b>Séjour</li><li class="on"><b>2</b>Coordonnées</li><li><b>3</b>Envoi à l'hôtel</li></ol>
+          <form id="req" novalidate>
+            <div class="seg" role="group" aria-label="Type de demande"><button type="button" data-kind="sejour" aria-pressed="true">Séjour</button><button type="button" data-kind="event" aria-pressed="false">Événement</button></div>
+            <fieldset id="fs-stay"><legend>Votre séjour</legend>
+              <div class="f"><label for="r-in">Arrivée</label><input type="date" id="r-in"></div>
+              <div class="f"><label for="r-out">Départ</label><input type="date" id="r-out"></div>
+              <div class="f"><label for="r-guests">Voyageurs</label><select id="r-guests"></select></div>
+              <div class="f"><label for="r-room">Catégorie</label><select id="r-room"></select></div>
+            </fieldset>
+            <fieldset id="fs-event" hidden><legend>Votre événement</legend>
+              <div class="f"><label for="e-date">Date souhaitée</label><input type="date" id="e-date"></div>
+              <div class="f"><label for="e-pax">Participants</label><input type="number" id="e-pax" min="1" max="400" inputmode="numeric" placeholder="ex. 80"></div>
+              <div class="f full"><label for="e-type">Type d'événement</label><select id="e-type"></select></div>
+            </fieldset>
+            <fieldset><legend>Vos coordonnées</legend>
+              <div class="f full"><label for="c-name">Nom complet</label><input id="c-name" autocomplete="name" required><span class="err" id="err-name" hidden>Indiquez votre nom pour que l'hôtel puisse vous répondre.</span></div>
+              <div class="f half-m"><label for="c-phone">Téléphone</label><input id="c-phone" type="tel" autocomplete="tel" placeholder="+221 …"></div>
+              <div class="f half-m"><label for="c-mail">E-mail</label><input id="c-mail" type="email" autocomplete="email"></div>
+              <span class="err" id="err-contact" hidden style="grid-column:1/-1">Ajoutez un téléphone ou un e-mail.</span>
+              <div class="f full"><label for="c-msg">Message (facultatif)</label><textarea id="c-msg" placeholder="Heure d'arrivée, besoin d'une navette, demande particulière…"></textarea></div>
+            </fieldset>
+            <div class="form-foot"><small>Prototype : aucune donnée n'est envoyée automatiquement. La demande est préparée pour être transmise à l'hôtel.</small><button class="btn btn-primary" type="submit">Préparer ma demande <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </form>
+          <div class="summary" id="summary" hidden tabindex="-1"></div>
+        </div>
+        <aside class="side" aria-label="Coordonnées de l'hôtel">
+          <div class="media" data-img="map"></div>
+          <div class="cblock" id="c-address"></div>
+          <div class="cblock" id="c-phones"><h3>Téléphone</h3></div>
+          <div class="cblock" id="c-mails"><h3>E-mail</h3></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-grid" id="f-grid"></div>
+    <div class="f-bottom" id="f-bottom"></div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar"></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie en plein écran" hidden>
+  <div class="lb-top"><span id="lb-count"></span><button class="icon-btn" id="lb-close" aria-label="Fermer la galerie"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="lb-stage" id="lb-stage"></div>
+  <div class="lb-bottom"><button class="icon-btn" id="lb-prev" aria-label="Image précédente"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><span id="lb-cap" style="align-self:center;min-width:0;text-align:center"></span><button class="icon-btn" id="lb-next" aria-label="Image suivante"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="content/hotel.js"></script>
+<script src="content/images.js"></script>
+<script src="ui/scenes.js"></script>
+<script>
+(function () {
+  const H = window.HOTEL, IMG = window.HOTEL_IMAGES;
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const setText = (id, t) => { const el = document.getElementById(id); if (el) el.textContent = t; };
+
+  /* ---------- Icônes ---------- */
+  const I = {
+    pool: '<path d="M2 18c2 0 2-1.4 4-1.4S8 18 10 18s2-1.4 4-1.4 2 1.4 4 1.4 2-1.4 4-1.4M2 21.5c2 0 2-1.4 4-1.4s2 1.4 4 1.4 2-1.4 4-1.4 2 1.4 4 1.4 2-1.4 4-1.4M8 15V5.5a2 2 0 0 1 4 0M15 15V5.5a2 2 0 0 0-4 0M8 8.5h7M8 12h7"/>',
+    rooftop: '<path d="M4 21V10l8-6 8 6v11M2 21h20M9.5 21v-5h5v5M8 12.5h.01M12 12.5h.01M16 12.5h.01"/>',
+    dining: '<path d="M7 3v7M5 3v5a2 2 0 0 0 4 0V3M7 10v11M17 21V3c-2.2 0-3.5 3.2-3.5 7.5H17"/>',
+    fitness: '<path d="M6.5 7v10M3.5 9.5v5M17.5 7v10M20.5 9.5v5M6.5 12h11"/>',
+    billiard: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="11" r="3"/><path d="M10.8 11h2.4"/>',
+    business: '<rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20M10 8.5h4"/>',
+    wifi: '<path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/>',
+    parking: '<rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M10 16.5v-9h3.2a2.7 2.7 0 0 1 0 5.4H10"/>',
+    shuttle: '<path d="M3 16.5V8a2 2 0 0 1 2-2h10.5l5 5v5.5H3zM3 11h17.5M9 6v5"/><circle cx="7" cy="17" r="1.8"/><circle cx="16.5" cy="17" r="1.8"/>',
+    prayer: '<path d="M6 21V11a6 6 0 0 1 12 0v10M3 21h18M12 5V2.5M9.5 21v-5a2.5 2.5 0 0 1 5 0v5"/>',
+    roomservice: '<path d="M3.5 17h17M5 17a7 7 0 0 1 14 0M12 10V8M10 7.5h4M2.5 20h19"/>',
+    rfid: '<rect x="2.5" y="6.5" width="12" height="11" rx="1.5"/><path d="M5.5 13.5h4M17.5 9.5a4 4 0 0 1 0 5M20 7.5a7 7 0 0 1 0 9"/>',
+    pin: '<path d="M12 21s-7-6.3-7-11.5a7 7 0 0 1 14 0C19 14.7 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    phone: '<path d="M5 3.5h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.6 6.6l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/>',
+    check: '<path d="m4.5 12.5 4.5 4.5 10.5-10.5"/>',
+    copy: '<rect x="8.5" y="8.5" width="12" height="12" rx="2"/><path d="M15.5 8.5V5a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 5v9A1.5 1.5 0 0 0 5 15.5h3.5"/>',
+    arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    ext: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>'
+  };
+  const ico = (n) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${I[n] || ""}</svg>`;
+
+  /* ---------- Logo (monogramme HRK redessiné en vectoriel) ---------- */
+  function logo(color = "#D8843A") {
+    let bars = "";
+    const n = 7;
+    for (let i = 0; i < n; i++) {
+      const x = 45 + i * 4.6, top = 6 + Math.abs(i - 3) * 3.2;
+      if (i === 3) bars += `<path d="M${x} ${top + 2} L${x + 1.6} ${top - 1} L${x + 3.2} ${top + 2} V38 H${x}Z"/>`;
+      else bars += `<rect x="${x}" y="${top}" width="3.2" height="${38 - top}"/>`;
+    }
+    return `<svg viewBox="0 0 120 100" fill="${color}" aria-hidden="true">${bars}
+      <path d="M57.6 38v-5a2.4 2.4 0 0 1 4.8 0v5z" fill="#15140A" opacity=".35"/>
+      <path d="M14 45 Q60 33 106 45 Q60 38.5 14 45Z"/>
+      <path d="M14 52h12v16h22V52h12v40H48V77H26v15H14z"/>
+      <path fill-rule="evenodd" d="M60 52h17a13 13 0 0 1 0 26h-3l16 14H76L62 78h-2zm0 9v8h16a4 4 0 0 0 0-8z"/>
+      <path d="M98 50h11L92 71l-8-3z"/>
+      <path d="M87 74l6-4 20 22H99z"/>
+    </svg>`;
+  }
+  const brandHTML = () => `${logo()}<span class="brand-words"><small>${esc(H.wordmark.top)}</small><strong>${esc(H.wordmark.bottom)}</strong></span>`;
+
+  /* ---------- Médias : photo si fournie, sinon illustration ---------- */
+  function mediaInner(key, note) {
+    const m = IMG[key] || { scene: "facade", alt: "" };
+    if (m.src) return `<img src="${esc(m.src)}" alt="${esc(m.alt)}" loading="${key === "hero" ? "eager" : "lazy"}" decoding="async">`;
+    return window.Scenes.render(m.scene, m.alt) + (note ? `<span class="media-note">Visuel d'illustration</span>` : "");
+  }
+  const media = (key, cls = "", note = false) => `<div class="media ${cls}">${mediaInner(key, note)}</div>`;
+  function hydrateMedia(root = document) { $$("[data-img]", root).forEach((el) => { el.innerHTML = mediaInner(el.dataset.img, el.dataset.note === "1"); }); }
+
+  const fmtPrice = (n) => n.toLocaleString("fr-FR").replace(/\s/g, " ");
+  const roomById = (id) => H.rooms.find((r) => r.id === id);
+
+  /* ---------- En-tête, menu, pied de page ---------- */
+  $("#brand").innerHTML = brandHTML();
+  $("#brand-menu").innerHTML = brandHTML();
+  const p0 = H.contact.phones[0], m0 = H.contact.emails[0];
+  $("#topbar").innerHTML = `<span>${ico("pin")}${esc(H.location.district)}, ${esc(H.location.city)}, ${esc(H.location.country)}</span>
+    <a href="tel:${p0.tel}">${ico("phone")}${esc(p0.display)}</a><a href="mailto:${m0.value}">${ico("mail")}${esc(m0.value)}</a>
+    <span class="push">${ico("globe")}${esc(H.contact.website)}</span>`;
+  $("#menu-foot").innerHTML = H.contact.phones.map((p) => `<span>${esc(p.label)} · ${esc(p.display)}</span>`).join("") +
+    `<span>${esc(m0.value)}</span><a class="btn btn-primary" href="#reservation" data-close>Réserver</a>`;
+  $("#mbar").innerHTML = `<a class="btn btn-ghost" href="tel:${p0.tel}" aria-label="Appeler la réception, ${esc(p0.display)}">${ico("phone")}Appeler</a><a class="btn btn-primary" href="#reservation">Réserver</a>`;
+
+  /* ---------- Hero ---------- */
+  setText("hero-eyebrow", H.hero.eyebrow);
+  const tWords = H.hero.title.split(" ");
+  $("#hero-title").innerHTML = `${esc(tWords.slice(0, -1).join(" "))} <em>${esc(tWords.slice(-1)[0])}</em>`;
+  setText("hero-sub", H.hero.subtitle);
+
+  /* ---------- Introduction ---------- */
+  setText("intro-eyebrow", H.intro.eyebrow);
+  setText("intro-title", H.intro.title);
+  $("#intro-paras").innerHTML = H.intro.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
+  $("#intro-place").innerHTML = `${ico("pin")}<span>${esc(H.location.district)}, ${esc(H.location.city)} · ${esc(H.location.detail)}</span>`;
+  $("#figures").innerHTML = H.keyFigures.map((k) => `<div><strong>${esc(k.value)}</strong><span>${esc(k.label)}</span></div>`).join("");
+
+  /* ---------- Chambres ---------- */
+  $("#rooms-track").innerHTML = H.rooms.map((r) => `
+    <article class="room">
+      <div class="media">${mediaInner(r.image)}<span class="tag ${r.kind === "Suite" ? "suite" : ""}">${esc(r.kind)}</span></div>
+      <div class="room-body">
+        <h3>${esc(r.name)}</h3>
+        <p>${esc(r.blurb)}</p>
+        <div class="room-foot">
+          ${r.price ? `<div class="price"><small>Tarif indicatif</small><strong>${fmtPrice(r.price)} <span>${esc(H.currency)} / nuit</span></strong></div>`
+                    : `<div class="price ask"><small>Tarif</small><strong>Sur demande</strong></div>`}
+          <button class="btn btn-line" type="button" data-room="${r.id}" aria-label="Demander la ${esc(r.name)}">Réserver</button>
+        </div>
+      </div>
+    </article>`).join("");
+  $("#rooms-common").innerHTML = H.roomsCommon.map((c) => `<li>${ico("check")}${esc(c)}</li>`).join("");
+  setText("price-note", H.priceNote + " Visuels d'illustration.");
+  const track = $("#rooms-track");
+  const step = () => (track.querySelector(".room")?.getBoundingClientRect().width || 300) + 22;
+  $("#r-prev").onclick = () => track.scrollBy({ left: -step(), behavior: "smooth" });
+  $("#r-next").onclick = () => track.scrollBy({ left: step(), behavior: "smooth" });
+  const arrowsState = () => { $("#r-prev").disabled = track.scrollLeft < 4; $("#r-next").disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4; };
+  track.addEventListener("scroll", arrowsState, { passive: true }); window.addEventListener("resize", arrowsState);
+
+  /* ---------- Piscine, rooftop, restauration ---------- */
+  setText("pool-eyebrow", H.pool.eyebrow); setText("pool-title", H.pool.title); setText("pool-text", H.pool.text);
+  $("#pool-points").innerHTML = H.pool.points.map((p) => `<li>${esc(p)}</li>`).join("");
+  setText("roof-eyebrow", H.rooftop.eyebrow); setText("roof-title", H.rooftop.title); setText("roof-text", H.rooftop.text);
+  setText("dine-eyebrow", H.dining.eyebrow); setText("dine-title", H.dining.title); setText("dine-text", H.dining.text);
+  $("#dine-items").innerHTML = H.dining.items.map((i) => `<div>${i.value ? `<strong>${esc(i.value)}</strong>` : ico("check")}<span>${esc(i.label)}</span></div>`).join("");
+
+  /* ---------- Services ---------- */
+  $("#svc-grid").innerHTML = H.services.map((s) => `<div class="svc">${ico(s.icon)}<strong>${esc(s.name)}</strong><span>${esc(s.note)}</span></div>`).join("");
+
+  /* ---------- Séminaires ---------- */
+  const M = H.meetings;
+  setText("meet-eyebrow", M.eyebrow); setText("meet-title", M.title); setText("meet-text", M.text); setText("meet-total", M.total);
+  $("#meet-rooms").innerHTML = M.rooms.map((r) => `<li>${r.capacity ? `<strong>${esc(r.capacity)}</strong>` : `<strong class="none">sur demande</strong>`}<div><b>${esc(r.name)}</b><span>${esc(r.unit)}</span></div></li>`).join("");
+  $("#meet-formats").innerHTML = M.formats.map((f) => `<li>${esc(f)}</li>`).join("");
+
+  /* ---------- Galerie ---------- */
+  const cats = ["Tout", ...new Set(H.gallery.map((g) => g.cat))];
+  const pattern = ["big", "", "tall", "", "wide", "", "", "tall", "", "wide", "", "", "", "wide", "wide"];
+  $("#filters").innerHTML = cats.map((c, i) => `<button class="filter" type="button" aria-pressed="${i === 0}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+  $("#gallery").innerHTML = H.gallery.map((g, i) => `<button class="g-item ${pattern[i % pattern.length]}" type="button" data-i="${i}" data-cat="${esc(g.cat)}" aria-label="Agrandir : ${esc(IMG[g.image]?.alt || g.cat)}">
+      ${media(g.image)}<span class="g-cap"><span>${esc(IMG[g.image]?.alt || "")}</span><em>${esc(g.cat)}</em></span></button>`).join("");
+  $("#filters").addEventListener("click", (e) => {
+    const b = e.target.closest(".filter"); if (!b) return;
+    $$(".filter").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    $$(".g-item").forEach((it) => it.classList.toggle("out", b.dataset.cat !== "Tout" && it.dataset.cat !== b.dataset.cat));
+  });
+  const lb = $("#lightbox"); let lbI = 0, lbList = [], lbReturn = null;
+  function lbShow() {
+    const g = H.gallery[lbList[lbI]];
+    $("#lb-stage").innerHTML = media(g.image, "", true);
+    $("#lb-cap").textContent = `${IMG[g.image]?.alt || ""} · ${g.cat}`;
+    $("#lb-count").textContent = `${lbI + 1} / ${lbList.length}`;
+  }
+  $("#gallery").addEventListener("click", (e) => {
+    const it = e.target.closest(".g-item"); if (!it) return;
+    lbList = $$(".g-item:not(.out)").map((x) => +x.dataset.i); lbI = lbList.indexOf(+it.dataset.i);
+    lbReturn = it; lb.hidden = false; document.body.style.overflow = "hidden"; lbShow(); $("#lb-close").focus();
+  });
+  const lbClose = () => { lb.hidden = true; document.body.style.overflow = ""; lbReturn?.focus(); };
+  const lbMove = (d) => { lbI = (lbI + d + lbList.length) % lbList.length; lbShow(); };
+  $("#lb-close").onclick = lbClose; $("#lb-prev").onclick = () => lbMove(-1); $("#lb-next").onclick = () => lbMove(1);
+  lb.addEventListener("click", (e) => { if (e.target === lb || e.target.id === "lb-stage") lbClose(); });
+  let tx = null;
+  lb.addEventListener("touchstart", (e) => { tx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", (e) => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) lbMove(dx < 0 ? 1 : -1); tx = null; });
+
+  /* ---------- Contact (colonne de droite) ---------- */
+  const copyBtn = (v, label) => `<button class="copy" type="button" data-copy="${esc(v)}" aria-label="Copier ${esc(label)}">${ico("copy")}Copier</button>`;
+  $("#c-address").innerHTML = `<h3>Adresse</h3><div class="crow"><div><b>${esc(H.location.district)}, ${esc(H.location.city)}</b><small>${esc(H.location.detail)} · ${esc(H.location.country)}</small></div>${copyBtn(`${H.name}, ${H.location.district}, ${H.location.city}, ${H.location.country}`, "l'adresse")}</div>
+    <div><a class="btn btn-line" href="${H.location.mapsUrl}" target="_blank" rel="noopener">Ouvrir dans Google Maps ${ico("ext")}</a></div>`;
+  $("#c-phones").insertAdjacentHTML("beforeend", H.contact.phones.map((p) => `<div class="crow"><div><small>${esc(p.label)}</small><a href="tel:${p.tel}">${esc(p.display)}</a></div>${copyBtn(p.display, p.display)}</div>`).join(""));
+  $("#c-mails").insertAdjacentHTML("beforeend", H.contact.emails.map((m) => `<div class="crow"><div><small>${esc(m.label)}</small><a href="mailto:${m.value}">${esc(m.value)}</a></div>${copyBtn(m.value, m.value)}</div>`).join(""));
+
+  /* ---------- Pied de page ---------- */
+  $("#f-grid").innerHTML = `
+    <div class="f-brand"><a class="brand" href="#top" style="color:var(--on-dark)">${brandHTML()}</a><p>${esc(H.tagline)}. ${esc(H.location.district)}, ${esc(H.location.city)}, ${esc(H.location.country)}.</p></div>
+    <div><h3>L'hôtel</h3><ul><li><a href="#chambres">Chambres & suites</a></li><li><a href="#experiences">Piscine</a></li><li><a href="#experiences">Rooftop & restauration</a></li><li><a href="#galerie">Galerie</a></li></ul></div>
+    <div><h3>Affaires</h3><ul><li><a href="#seminaires">Séminaires & événements</a></li><li><a href="#seminaires">Salles de réunion</a></li><li><a href="#reservation" data-event>Demander un devis</a></li></ul></div>
+    <div><h3>Contact</h3><ul>${H.contact.phones.map((p) => `<li><a href="tel:${p.tel}">${esc(p.display)}</a></li>`).join("")}${H.contact.emails.map((m) => `<li><a href="mailto:${m.value}" style="overflow-wrap:anywhere">${esc(m.value)}</a></li>`).join("")}</ul></div>`;
+  $("#f-bottom").innerHTML = `<span>© ${new Date().getFullYear()} ${esc(H.name)} · ${esc(H.contact.website)}</span><span>${esc(H.credit)} Visuels d'illustration, photographies officielles à intégrer.</span>`;
+
+  hydrateMedia();
+
+  /* ---------- Réservation ---------- */
+  const guestOpts = ["1 adulte", "2 adultes", "2 adultes, 1 enfant", "2 adultes, 2 enfants", "3 adultes", "4 adultes et plus"];
+  const roomOpts = `<option value="">Toutes catégories</option>` + H.rooms.map((r) => `<option value="${r.id}">${esc(r.name)}</option>`).join("");
+  for (const id of ["bb-guests", "r-guests"]) $("#" + id).innerHTML = guestOpts.map((g, i) => `<option ${i === 1 ? "selected" : ""}>${g}</option>`).join("");
+  $("#bb-room").innerHTML = roomOpts; $("#r-room").innerHTML = roomOpts;
+  $("#e-type").innerHTML = M.formats.slice(0, 5).map((f) => `<option>${esc(f)}</option>`).join("");
+
+  const iso = (d) => new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  const today = new Date(); today.setHours(12, 0, 0, 0);
+  const plus = (n) => { const d = new Date(today); d.setDate(d.getDate() + n); return iso(d); };
+  for (const [a, b] of [["bb-in", "bb-out"], ["r-in", "r-out"]]) { $("#" + a).value = plus(14); $("#" + b).value = plus(16); $("#" + a).min = plus(0); $("#" + b).min = plus(1); }
+  $("#e-date").value = plus(30); $("#e-date").min = plus(0);
+  const nights = (a, b) => Math.round((new Date(b) - new Date(a)) / 864e5);
+  const fmtDate = (v) => v ? new Date(v + "T12:00:00").toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "long", year: "numeric" }) : "—";
+  function syncNights() {
+    const n = nights($("#bb-in").value, $("#bb-out").value);
+    $("#bb-nights").textContent = n > 0 ? `${n} nuit${n > 1 ? "s" : ""} · ${fmtDate($("#bb-in").value)} → ${fmtDate($("#bb-out").value)}` : "La date de départ doit suivre la date d'arrivée.";
+  }
+  function keepOrder(a, b) { $("#" + a).addEventListener("change", () => { if (nights($("#" + a).value, $("#" + b).value) < 1) { const d = new Date($("#" + a).value + "T12:00:00"); d.setDate(d.getDate() + 1); $("#" + b).value = iso(d); } syncNights(); }); }
+  keepOrder("bb-in", "bb-out"); keepOrder("r-in", "r-out"); $("#bb-out").addEventListener("change", syncNights); syncNights();
+
+  const toast = (t) => { const el = $("#toast"); el.textContent = t; el.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 3200); };
+  let kind = "sejour";
+  function setKind(k) {
+    kind = k;
+    $$(".seg button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.kind === k));
+    $("#fs-stay").hidden = k !== "sejour"; $("#fs-event").hidden = k !== "event";
+    setText("contact-title", k === "event" ? "Organiser un événement" : "Demander une disponibilité");
+  }
+  $$(".seg button").forEach((b) => b.addEventListener("click", () => setKind(b.dataset.kind)));
+  function goForm(focusName = true) {
+    showForm();
+    $("#reservation").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    if (focusName) setTimeout(() => $("#c-name").focus({ preventScroll: true }), 650);
+  }
+  $("#bookbar").addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (nights($("#bb-in").value, $("#bb-out").value) < 1) { toast("Choisissez une date de départ après l'arrivée."); return; }
+    setKind("sejour");
+    $("#r-in").value = $("#bb-in").value; $("#r-out").value = $("#bb-out").value;
+    $("#r-guests").value = $("#bb-guests").value; $("#r-room").value = $("#bb-room").value;
+    goForm(); toast("Séjour pré-rempli. Il reste vos coordonnées.");
+  });
+  document.addEventListener("click", (e) => {
+    const r = e.target.closest("[data-room]");
+    if (r) { setKind("sejour"); $("#r-room").value = r.dataset.room; $("#bb-room").value = r.dataset.room; goForm(); toast(`${roomById(r.dataset.room).name} sélectionnée.`); }
+    const ev = e.target.closest("[data-event]");
+    if (ev) { e.preventDefault(); setKind("event"); goForm(); toast("Demande d'événement : indiquez la date et le nombre de participants."); }
+    const c = e.target.closest("[data-copy]");
+    if (c) copy(c.dataset.copy, c);
+    if (e.target.closest("#menu a")) closeMenu();
+  });
+  $("#meet-mail").addEventListener("click", (e) => { e.preventDefault(); setKind("event"); goForm(); });
+
+  async function copy(text, btn, field) {
+    try { await navigator.clipboard.writeText(text); toast("Copié dans le presse-papiers."); }
+    catch { if (field) { field.focus(); field.select(); toast("Sélectionné : utilisez Copier de votre appareil."); } else toast(text); }
+    if (btn) { const o = btn.innerHTML; btn.innerHTML = `${ico("check")}Copié`; setTimeout(() => (btn.innerHTML = o), 1800); }
+  }
+
+  function showForm() { $("#req").hidden = false; $("#summary").hidden = true; $$("#steps li")[2].classList.remove("on"); }
+  $("#req").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = $("#c-name").value.trim(), phone = $("#c-phone").value.trim(), mail = $("#c-mail").value.trim();
+    $("#err-name").hidden = !!name; $("#err-contact").hidden = !!(phone || mail);
+    if (!name) return $("#c-name").focus();
+    if (!phone && !mail) return $("#c-phone").focus();
+    let rows, subject, to;
+    if (kind === "sejour") {
+      const room = roomById($("#r-room").value), n = nights($("#r-in").value, $("#r-out").value);
+      if (n < 1) { toast("La date de départ doit suivre l'arrivée."); return $("#r-out").focus(); }
+      rows = [["Arrivée", fmtDate($("#r-in").value)], ["Départ", fmtDate($("#r-out").value)], ["Durée", `${n} nuit${n > 1 ? "s" : ""}`],
+        ["Voyageurs", $("#r-guests").value], ["Catégorie", room ? room.name : "Toutes catégories"]];
+      if (room?.price) rows.push(["Tarif indicatif", `${fmtPrice(room.price)} ${H.currency} / nuit, à confirmer`]);
+      subject = `Demande de disponibilité : ${room ? room.name : "chambre"}, ${$("#r-in").value} au ${$("#r-out").value}`;
+      to = H.contact.emails[0].value;
+    } else {
+      rows = [["Date souhaitée", fmtDate($("#e-date").value)], ["Participants", $("#e-pax").value || "à préciser"], ["Type", $("#e-type").value]];
+      subject = `Demande d'information événement : ${$("#e-type").value}, ${$("#e-date").value}`;
+      to = H.contact.emails[1].value;
+    }
+    rows.push(["Nom", name]); if (phone) rows.push(["Téléphone", phone]); if (mail) rows.push(["E-mail", mail]);
+    const msg = $("#c-msg").value.trim();
+    const body = `Bonjour,\n\nJe souhaite ${kind === "sejour" ? "connaître vos disponibilités pour le séjour suivant" : "des informations pour organiser un événement à l'hôtel"} :\n\n` +
+      rows.map(([k, v]) => `• ${k} : ${v}`).join("\n") + (msg ? `\n\n${msg}` : "") + `\n\nMerci de me recontacter.\n${name}`;
+    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const s = $("#summary");
+    s.innerHTML = `<span class="eyebrow">Votre demande est prête</span>
+      <h3>${kind === "sejour" ? "Demande de disponibilité" : "Demande pour un événement"}</h3>
+      <dl>${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
+      <label for="msg-out" class="note">Message adressé à ${esc(to)}</label>
+      <textarea id="msg-out" readonly>${esc(body)}</textarea>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="${mailto}">${ico("mail")}Envoyer par e-mail</a>
+        <button class="btn btn-line" type="button" id="copy-msg">${ico("copy")}Copier le message</button>
+        <a class="btn btn-line" href="tel:${p0.tel}">${ico("phone")}${esc(p0.display)}</a>
+      </div>
+      <p class="note">Prototype : rien n'a encore été transmis. Envoyez le message par e-mail ou appelez la réception pour confirmer. <button class="link" type="button" id="edit-req">Modifier ma demande</button></p>`;
+    $("#req").hidden = true; s.hidden = false; $$("#steps li")[2].classList.add("on");
+    $("#copy-msg").onclick = (ev) => copy(body, ev.currentTarget, $("#msg-out"));
+    $("#edit-req").onclick = () => { showForm(); $("#c-name").focus(); };
+    s.focus({ preventScroll: true }); $("#panel").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  /* ---------- Menu mobile ---------- */
+  const menu = $("#menu"), burger = $("#burger");
+  const openMenu = () => { menu.classList.add("open"); burger.setAttribute("aria-expanded", "true"); document.body.style.overflow = "hidden"; setTimeout(() => $("#menu-close").focus(), 50); };
+  function closeMenu() { if (!menu.classList.contains("open")) return; menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); document.body.style.overflow = ""; burger.focus({ preventScroll: true }); }
+  burger.onclick = openMenu; $("#menu-close").onclick = closeMenu;
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { if (!lb.hidden) lbClose(); else closeMenu(); }
+    if (!lb.hidden && e.key === "ArrowRight") lbMove(1);
+    if (!lb.hidden && e.key === "ArrowLeft") lbMove(-1);
+  });
+
+  /* ---------- En-tête au scroll ---------- */
+  const header = $(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll(); arrowsState();
+
+  /* ---------- Apparitions au scroll (uniquement sous la ligne de flottaison) ---------- */
+  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const io = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) { en.target.classList.remove("pre"); io.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
+    $$("[data-reveal]").forEach((el) => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre", "reveal"); io.observe(el); } });
+  }
+
+  /* ---------- Données structurées (SEO local) ---------- */
+  const ld = document.createElement("script"); ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "Hotel", name: H.name, description: H.seo.description,
+    address: { "@type": "PostalAddress", streetAddress: `${H.location.district}, ${H.location.detail}`, addressLocality: H.location.city, addressCountry: "SN" },
+    telephone: H.contact.phones.map((p) => p.display), email: H.contact.emails[0].value, url: "https://" + H.contact.website,
+    numberOfRooms: 32, amenityFeature: H.services.map((s) => ({ "@type": "LocationFeatureSpecification", name: s.name, value: true })) });
+  document.head.appendChild(ld);
+})();
+</script>
