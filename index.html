@@ -182,26 +182,14 @@ p{margin:0}
 .ready .hero h1 .line>span{transform:none;transition:transform 1.2s var(--ease);transition-delay:calc(.15s + var(--i) * .12s)}
 .ready .h-in,.ready .h-side{opacity:1;transform:none;transition:opacity 1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,.5s)}
 
-/* ---------- Bandeau défilant ---------- */
-.marquee{overflow:hidden;padding-top:clamp(28px,4vw,44px);background:var(--sand)}
-.marquee-track{display:flex;width:max-content;animation:scroll 42s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee span{font-family:var(--f-display);font-style:italic;font-size:clamp(46px,6.5vw,96px);line-height:1.1;color:transparent;-webkit-text-stroke:1px rgba(154,84,25,.6);padding-inline:26px;display:inline-flex;align-items:center;gap:52px;white-space:nowrap}
-.marquee span:nth-child(odd){color:var(--text);-webkit-text-stroke:0}
-.marquee span::after{content:"";width:14px;height:14px;background:var(--copper);transform:rotate(45deg);border-radius:2px}
-@keyframes scroll{to{transform:translateX(-50%)}}
 
 /* ---------- Sections ---------- */
 .section{position:relative;padding-block:clamp(90px,11vw,150px)}
-.intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,7vw,110px);align-items:center}
-.intro-art{position:relative;padding:0 14% 12% 0}
-.intro-art .arch{aspect-ratio:4/5}
-.intro-art .circle{position:absolute;right:0;bottom:0;width:48%;aspect-ratio:1;border:10px solid var(--sand);box-shadow:0 30px 60px rgba(27,28,16,.2)}
-.badge{position:absolute;left:-26px;top:9%;width:132px;height:132px;border-radius:50%;background:var(--deep);color:var(--on-dark);display:grid;place-items:center;box-shadow:0 20px 40px rgba(27,28,16,.3);z-index:2}
-.badge svg.ring{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);animation:spin 22s linear infinite}
-.badge svg.ring text{font:700 9.4px var(--f-body);letter-spacing:3px;fill:var(--on-dark-2);text-transform:uppercase}
-.badge .mark svg{width:48px;height:40px;display:block}
-@keyframes spin{to{transform:rotate(360deg)}}
+.intro-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,7vw,110px);align-items:center}
+.collage{position:relative;padding:0 0 60px 60px}
+.collage .main{aspect-ratio:5/4;border-radius:4px}
+.collage .inset{position:absolute;left:0;bottom:0;width:44%;aspect-ratio:1;border:8px solid var(--sand);border-radius:4px;box-shadow:0 24px 50px rgba(27,28,16,.2)}
+.collage::before{content:"";position:absolute;top:-22px;right:-22px;width:40%;height:50%;border:1px solid var(--copper);opacity:.55}
 .intro-text{display:grid;gap:22px}
 .intro-text p{color:var(--muted);max-width:54ch}
 .intro-text p.big{font-size:clamp(18px,1.5vw,21px);color:var(--text);line-height:1.6}
@@ -223,7 +211,7 @@ p{margin:0}
 .xp h3{font-size:30px}
 .xp p{color:var(--muted);font-size:15px}
 .xp .link{justify-self:start;margin-top:6px}
-.xp-photo{grid-column:3;grid-row:1/span 2;border-radius:999px 999px 24px 24px;min-height:420px}
+.xp-photo{grid-column:3;grid-row:1/span 2;border-radius:4px;min-height:420px}
 
 /* Chambres */
 .rooms{background:var(--deep);color:var(--on-dark);overflow:hidden}
@@ -268,7 +256,10 @@ p{margin:0}
 .chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
 .chips li{border:1px solid rgba(246,240,228,.3);border-radius:99px;padding:6px 14px;font-size:13px}
 .b-card{background:var(--cream);border:1px solid var(--stone);border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
-.b-card .media{aspect-ratio:16/11;margin:10px 10px 0;border-radius:20px}
+.b-media{position:relative;margin:10px 10px 0}
+.b-media>.media:first-child{aspect-ratio:16/11;border-radius:20px}
+.b-media .float{position:absolute;right:14px;bottom:-34px;width:38%;aspect-ratio:1;border:6px solid var(--cream);border-radius:16px;box-shadow:0 18px 36px rgba(27,28,16,.25);z-index:2}
+.b-card .b-body{padding-top:30px}
 .b-card:hover .media>img{transform:scale(1.06)}
 .b-body{padding:22px 24px 26px;display:grid;gap:12px;align-content:start}
 .b-body p{color:var(--muted);font-size:15px}
@@ -281,7 +272,10 @@ p{margin:0}
 .also{font-size:13px;color:var(--on-dark-2);border-top:1px solid var(--line-dark);padding-top:16px}
 .also b{color:var(--on-dark);font-weight:600}
 .b-dine{grid-column:2/span 2;grid-row:2;flex-direction:row}
-.b-dine .media{aspect-ratio:auto;flex:1 1 46%;margin:10px 0 10px 10px;min-height:300px}
+.b-dine .b-media{flex:1 1 46%;margin:10px 0 10px 10px;display:flex}
+.b-dine .b-media>.media:first-child{aspect-ratio:auto;flex:1;min-height:300px}
+.b-dine .b-media .float{right:-26px;bottom:18px;width:34%}
+.b-dine .b-body{padding-left:44px}
 .b-dine .b-body{flex:1 1 54%;align-content:center}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
 .stats>div{background:var(--sand);border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;font-weight:500;line-height:1.3}
@@ -411,7 +405,7 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
 .f-grid a{text-decoration:none;transition:color .3s}
 .f-grid a:hover{color:var(--copper-2)}
 .f-brand p{margin-top:18px;max-width:34ch}
-.f-bottom{margin-top:50px;padding-top:22px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;gap:12px 30px;flex-wrap:wrap;font-size:13px}
+.f-bottom{margin-top:50px;padding-top:22px;border-top:1px solid var(--line-dark);text-align:center;font-size:13px;letter-spacing:.08em}
 
 /* Barre mobile + toast */
 .mbar{display:none}
@@ -446,12 +440,12 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
 }
 @media (max-width:900px){
   .intro-grid,.meet-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}
-  .intro-art,.meet-art{max-width:560px;width:100%;margin-inline:auto}
+  .meet-art{max-width:560px;width:100%;margin-inline:auto}
   .figures{grid-template-columns:repeat(2,minmax(0,1fr))}
   .figures>div:nth-child(3){border-left:0}
   .figures>div:nth-child(n+3){border-top:1px solid var(--stone)}
   .xp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .xp-photo{grid-column:1/-1;grid-row:auto;min-height:0;aspect-ratio:16/10;border-radius:24px}
+  .xp-photo{grid-column:1/-1;grid-row:auto;min-height:0;aspect-ratio:16/10}
   .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(150px,40vw,260px);gap:10px}
   .cta{grid-template-columns:minmax(0,1fr)}
   .cta .btn-row{justify-content:flex-start}
@@ -475,10 +469,8 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
   .bfield>.ico{display:none}
   .trust{gap:14px 18px;padding-bottom:90px;font-size:12.5px}
   .trust>div{flex:1 1 40%}
-  .intro-art{padding:0 10% 16% 0}
-  .badge{width:104px;height:104px;left:-6px}
-  .badge .mark svg{width:38px;height:32px}
-  .badge svg.ring text{font-size:8.2px;letter-spacing:2.4px}
+  .collage{padding:0 0 40px 34px}
+  .collage::before{right:0;top:-12px}
   .figures{border-radius:22px}
   .figures>div{padding:20px 18px}
   .xp-grid{grid-template-columns:minmax(0,1fr);gap:14px}
@@ -495,7 +487,10 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
   .b-pool::after{display:none}
   .b-pool .glass{margin:-80px 12px 12px;background:rgba(27,28,16,.92)}
   .b-dine{flex-direction:column}
-  .b-dine .media{margin:10px 10px 0;min-height:0;aspect-ratio:16/11;flex:none}
+  .b-dine .b-media{margin:10px 10px 0;flex:none;display:block}
+  .b-dine .b-media>.media:first-child{min-height:0;aspect-ratio:16/11}
+  .b-dine .b-media .float{right:14px;bottom:-34px;width:38%}
+  .b-dine .b-body{padding-left:24px}
   .meet-art{padding:0 8% 18% 0}
   .seal{width:96px;height:96px;left:-4px}
   .seal strong{font-size:36px}
@@ -605,15 +600,12 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
     <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" style="color:var(--sand)" aria-hidden="true"><path fill="currentColor" d="M0 70C180 20 360 10 560 48s380 70 560 36 250-60 320-58v94H0z"/></svg>
   </section>
 
-  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
-
   <section class="section" id="hotel" aria-labelledby="intro-title">
     <div class="wrap">
       <div class="intro-grid">
-        <div class="intro-art">
-          <div class="media arch wipe" data-img="introA" data-speed="-0.04"></div>
-          <div class="media circle wipe" data-img="introB" data-speed="0.08" style="--d:.25s"></div>
-          <div class="badge" id="badge"></div>
+        <div class="collage">
+          <div class="media main wipe" data-img="introA" data-speed="-0.03"></div>
+          <div class="media inset wipe" data-img="introB" data-speed="0.06" style="--d:.25s"></div>
         </div>
         <div class="intro-text">
           <span class="script rv">Notre maison</span>
@@ -658,7 +650,7 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
           <div class="glass on-dark"><span class="eyebrow" id="pool-eyebrow"></span><h3 id="pool-title" style="font-size:clamp(32px,3vw,44px)"></h3><p id="pool-text"></p><ul class="chips" id="pool-points"></ul></div>
         </article>
         <article class="b-card rv" style="--d:.1s">
-          <div class="media" data-img="bar"></div>
+          <div class="b-media"><div class="media" data-img="bar"></div><div class="media float" data-img="cocktails"></div></div>
           <div class="b-body"><span class="eyebrow" id="roof-eyebrow"></span><h3 id="roof-title"></h3><p id="roof-text"></p></div>
         </article>
         <article class="b-amen on-dark rv" style="--d:.2s">
@@ -667,7 +659,7 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
           <p class="also" id="also"></p>
         </article>
         <article class="b-card b-dine rv">
-          <div class="media" data-img="restaurant"></div>
+          <div class="b-media"><div class="media" data-img="restaurant"></div><div class="media float" data-img="dessert"></div></div>
           <div class="b-body"><span class="eyebrow" id="dine-eyebrow"></span><h3 id="dine-title"></h3><p id="dine-text"></p><div class="stats" id="dine-items"></div></div>
         </article>
       </div>
@@ -758,7 +750,6 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
 
 <footer class="footer">
   <div class="wrap">
-    <div class="f-big" aria-hidden="true">Résidence Khadija</div>
     <div class="f-grid" id="f-grid"></div>
     <div class="f-bottom" id="f-bottom"></div>
   </div>
@@ -859,14 +850,11 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
   $("#trust").innerHTML = `<div>${ico("bed")}<p><b>32 chambres</b>dont 6 suites</p></div><div>${ico("pool")}<p><b>2 bassins</b>piscine extérieure</p></div><div>${ico("pin")}<p><b>${esc(H.location.district)}</b>${esc(H.location.city)}, ${esc(H.location.country)}</p></div>`;
 
   // Bandeau
-  const mq = H.marquee.map((w) => `<span>${esc(w)}</span>`).join("");
-  $("#marquee").innerHTML = mq + mq + mq + mq;
 
   // Introduction
   setText("intro-eyebrow", H.intro.eyebrow); setText("intro-title", H.intro.title);
   $("#intro-paras").innerHTML = H.intro.paragraphs.map((p, i) => `<p class="${i ? "" : "big"}">${esc(p)}</p>`).join("");
   $("#intro-place").innerHTML = `${ico("pin")}<span>${esc(H.location.district)}, ${esc(H.location.city)} · ${esc(H.location.detail)}</span>`;
-  $("#badge").innerHTML = `<svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="ringp" d="M50 50m-38 0a38 38 0 1 1 76 0a38 38 0 1 1-76 0"/></defs><text><textPath href="#ringp">Hôtel Résidence Khadija · Thiès · Sénégal ·</textPath></text></svg><span class="mark">${logo("#EBA868")}</span>`;
   $("#figures").innerHTML = H.keyFigures.map((k) => `<div><strong data-count="${esc(k.value)}">${esc(k.value)}</strong><span>${esc(k.label)}</span></div>`).join("");
 
   // Expériences
@@ -925,7 +913,7 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
     <div><h3>L'hôtel</h3><ul><li><a href="#chambres">Chambres & suites</a></li><li><a href="#experiences">Piscine & bars</a></li><li><a href="#experiences">Restauration</a></li><li><a href="#galerie">Galerie</a></li></ul></div>
     <div><h3>Affaires</h3><ul><li><a href="#seminaires">Séminaires & événements</a></li><li><a href="#seminaires">Salles de réunion</a></li><li><a href="#reservation" data-event>Demander un devis</a></li></ul></div>
     <div><h3>Contact</h3><ul>${H.contact.phones.map((p) => `<li><a href="tel:${p.tel}">${esc(p.display)}</a></li>`).join("")}${H.contact.emails.map((m) => `<li><a href="mailto:${m.value}" style="overflow-wrap:anywhere">${esc(m.value)}</a></li>`).join("")}</ul></div>`;
-  $("#f-bottom").innerHTML = `<span>© ${new Date().getFullYear()} ${esc(H.name)} · ${esc(H.contact.website)}</span><span>${esc(H.credit)} Photographies : ${esc(H.name)}.</span>`;
+  $("#f-bottom").textContent = "Conçu par Jëfya";
 
   $$("[data-img]").forEach((el) => { el.innerHTML = mediaInner(el.dataset.img, el.dataset.note === "1", el.dataset.img === "hero"); });
 

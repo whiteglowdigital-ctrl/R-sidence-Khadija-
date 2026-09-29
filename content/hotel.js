@@ -168,8 +168,6 @@ window.HOTEL = {
   ],
   featuredRoom: "suite-junior",
 
-  marquee: ["Grand Standing", "Piscine", "Rooftop", "Restaurants", "Séminaires", "Thiès"],
-
   experiences: [
     { icon: "bed", title: "Chambres & suites", text: "32 chambres, dont 6 suites, avec accès par carte RFID.", href: "#chambres" },
     { icon: "pool", title: "Piscine & bars", text: "Deux bassins, un bar côté piscine et un bar sur le rooftop.", href: "#experiences" },
