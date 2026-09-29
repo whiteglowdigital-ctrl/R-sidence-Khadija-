@@ -34,6 +34,7 @@ window.HOTEL = {
   },
 
   hero: {
+    script: "Bienvenue à Thiès",
     eyebrow: "Grand Standing · Thiès · Sénégal",
     title: "Hôtel Résidence Khadija",
     subtitle: "Une adresse de standing à Thiès, pour les séjours d'affaires comme pour la découverte de la région."
@@ -158,6 +159,38 @@ window.HOTEL = {
     { image: "car", cat: "Hôtel" },
     { image: "robes", cat: "Chambres" }
   ],
+
+  /* Cartes flottantes du hero (informations réelles uniquement) */
+  heroHighlights: [
+    { icon: "pool", title: "Piscine extérieure", note: "2 bassins" },
+    { icon: "rooftop", title: "Rooftop & bars", note: "Côté piscine et sur le toit" },
+    { icon: "business", title: "3 salles de séminaire", note: "Jusqu'à 300 personnes" }
+  ],
+  featuredRoom: "suite-junior",
+
+  marquee: ["Grand Standing", "Piscine", "Rooftop", "Restaurants", "Séminaires", "Thiès"],
+
+  experiences: [
+    { icon: "bed", title: "Chambres & suites", text: "32 chambres, dont 6 suites, avec accès par carte RFID.", href: "#chambres" },
+    { icon: "pool", title: "Piscine & bars", text: "Deux bassins, un bar côté piscine et un bar sur le rooftop.", href: "#experiences" },
+    { icon: "dining", title: "Restauration", text: "Deux salles de restaurant, petit-déjeuner et service en chambre.", href: "#experiences" },
+    { icon: "business", title: "Séminaires", text: "Trois salles équipées, jusqu'à 300 personnes dans la grande salle.", href: "#seminaires" }
+  ],
+
+  /* Icônes affichées dans le panneau sombre « Services » */
+  amenities: ["pool", "rooftop", "dining", "fitness", "wifi", "shuttle", "billiard", "business", "parking"],
+
+  eventSteps: [
+    { title: "Votre demande", text: "Date, nombre de participants et type d'événement." },
+    { title: "Proposition", text: "L'équipe commerciale vous propose une salle et un devis." },
+    { title: "Organisation", text: "Hébergement des participants et restauration sur place." },
+    { title: "Le jour J", text: "Votre événement se déroule à l'hôtel." }
+  ],
+
+  cta: {
+    title: "Prêt à séjourner à Thiès ?",
+    text: "Choisissez vos dates : l'équipe de l'hôtel vous confirme la disponibilité et le tarif."
+  },
 
   seo: {
     title: "Hôtel Résidence Khadija · Thiès",
