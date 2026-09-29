@@ -95,7 +95,7 @@ p{margin:0}
 .hero{position:relative;color:var(--on-dark);background:var(--ink);min-height:clamp(640px,92svh,900px);display:flex;flex-direction:column;justify-content:flex-end}
 .hero>.media{position:absolute;inset:0}
 .hero>.media .media-note{bottom:auto;top:132px}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,14,7,.86) 0%,rgba(15,14,7,.5) 42%,rgba(15,14,7,0) 70%),linear-gradient(0deg,rgba(15,14,7,.75) 0%,rgba(15,14,7,0) 38%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,14,7,.7) 0%,rgba(15,14,7,0) 26%),linear-gradient(90deg,rgba(15,14,7,.86) 0%,rgba(15,14,7,.5) 42%,rgba(15,14,7,0) 70%),linear-gradient(0deg,rgba(15,14,7,.75) 0%,rgba(15,14,7,0) 38%);pointer-events:none}
 .hero-inner{position:relative;z-index:2;padding-top:160px;padding-bottom:56px}
 .hero h1{font-size:clamp(46px,7.4vw,104px);font-weight:500;max-width:11ch;margin-top:22px}
 .hero h1 em{font-style:italic;color:var(--copper-soft);font-weight:500}
@@ -189,7 +189,7 @@ section{position:relative}
 .duo-media{position:relative}
 .duo-media .media{aspect-ratio:4/3;border-radius:2px}
 .duo-media .tall{aspect-ratio:5/4}
-.duo-media .float{position:absolute;right:-24px;bottom:-40px;width:42%;aspect-ratio:4/5;border:8px solid var(--ivory)}
+.duo-media .float{position:absolute;right:-24px;bottom:-40px;width:40%;aspect-ratio:1;border:8px solid var(--ivory)}
 .duo-text{display:grid;gap:20px;min-width:0}
 .duo-text p{color:var(--muted)}
 .stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:6px}
@@ -345,6 +345,7 @@ legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom
   .nav{min-height:66px}
   .hero{min-height:auto}
   .hero-inner{padding-top:128px;padding-bottom:34px}
+  .hero::after{background:linear-gradient(180deg,rgba(15,14,7,.6) 0%,rgba(15,14,7,.62) 45%,rgba(15,14,7,.88) 100%)}
   .hero>.media .media-note{top:86px}
   .hero-ctas .btn{flex:1 1 auto}
   .booking{margin-bottom:0;padding-bottom:28px}
@@ -477,7 +478,7 @@ legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom
   <section class="section light" aria-label="Rooftop et restauration">
     <div class="wrap">
       <div class="duo" data-reveal>
-        <div class="duo-media"><div class="media tall" data-img="rooftop" data-note="1"></div></div>
+        <div class="duo-media"><div class="media tall" data-img="bar"></div><div class="media float" data-img="cocktails"></div></div>
         <div class="duo-text">
           <span class="eyebrow" id="roof-eyebrow"></span>
           <h2 id="roof-title"></h2>
@@ -486,7 +487,7 @@ legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom
         </div>
       </div>
       <div class="duo flip" data-reveal>
-        <div class="duo-media"><div class="media" data-img="restaurant" data-note="1"></div><div class="media float" data-img="bar"></div></div>
+        <div class="duo-media"><div class="media" data-img="restaurant"></div><div class="media float" data-img="dessert"></div></div>
         <div class="duo-text">
           <span class="eyebrow" id="dine-eyebrow"></span>
           <h2 id="dine-title"></h2>
@@ -566,7 +567,7 @@ legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom
           <div class="summary" id="summary" hidden tabindex="-1"></div>
         </div>
         <aside class="side" aria-label="Coordonnées de l'hôtel">
-          <div class="media" data-img="map"></div>
+          <div class="media" data-img="map" data-note="1"></div>
           <div class="cblock" id="c-address"></div>
           <div class="cblock" id="c-phones"><h3>Téléphone</h3></div>
           <div class="cblock" id="c-mails"><h3>E-mail</h3></div>
@@ -649,8 +650,8 @@ legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom
   /* ---------- Médias : photo si fournie, sinon illustration ---------- */
   function mediaInner(key, note) {
     const m = IMG[key] || { scene: "facade", alt: "" };
-    if (m.src) return `<img src="${esc(m.src)}" alt="${esc(m.alt)}" loading="${key === "hero" ? "eager" : "lazy"}" decoding="async">`;
-    return window.Scenes.render(m.scene, m.alt) + (note ? `<span class="media-note">Visuel d'illustration</span>` : "");
+    if (m.src) return `<img src="${esc(m.src)}" alt="${esc(m.alt)}"${m.pos ? ` style="object-position:${esc(m.pos)}"` : ""} loading="${key === "hero" ? "eager" : "lazy"}" decoding="async">`;
+    return window.Scenes.render(m.scene, m.alt) + (note ? `<span class="media-note">Illustration</span>` : "");
   }
   const media = (key, cls = "", note = false) => `<div class="media ${cls}">${mediaInner(key, note)}</div>`;
   function hydrateMedia(root = document) { $$("[data-img]", root).forEach((el) => { el.innerHTML = mediaInner(el.dataset.img, el.dataset.note === "1"); }); }
@@ -697,7 +698,7 @@ legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom
       </div>
     </article>`).join("");
   $("#rooms-common").innerHTML = H.roomsCommon.map((c) => `<li>${ico("check")}${esc(c)}</li>`).join("");
-  setText("price-note", H.priceNote + " Visuels d'illustration.");
+  setText("price-note", H.priceNote + " Correspondance photos et catégories à confirmer.");
   const track = $("#rooms-track");
   const step = () => (track.querySelector(".room")?.getBoundingClientRect().width || 300) + 22;
   $("#r-prev").onclick = () => track.scrollBy({ left: -step(), behavior: "smooth" });
@@ -723,7 +724,7 @@ legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom
 
   /* ---------- Galerie ---------- */
   const cats = ["Tout", ...new Set(H.gallery.map((g) => g.cat))];
-  const pattern = ["big", "", "tall", "", "wide", "", "", "tall", "", "wide", "", "", "", "wide", "wide"];
+  const pattern = ["big", "", "", "tall", "", "wide", "", "", "", "big", "", "wide", "", "tall", "", "", "wide", "", "wide", ""];
   $("#filters").innerHTML = cats.map((c, i) => `<button class="filter" type="button" aria-pressed="${i === 0}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
   $("#gallery").innerHTML = H.gallery.map((g, i) => `<button class="g-item ${pattern[i % pattern.length]}" type="button" data-i="${i}" data-cat="${esc(g.cat)}" aria-label="Agrandir : ${esc(IMG[g.image]?.alt || g.cat)}">
       ${media(g.image)}<span class="g-cap"><span>${esc(IMG[g.image]?.alt || "")}</span><em>${esc(g.cat)}</em></span></button>`).join("");
@@ -765,7 +766,7 @@ legend{font-family:var(--f-display);font-size:24px;font-weight:600;margin-bottom
     <div><h3>L'hôtel</h3><ul><li><a href="#chambres">Chambres & suites</a></li><li><a href="#experiences">Piscine</a></li><li><a href="#experiences">Rooftop & restauration</a></li><li><a href="#galerie">Galerie</a></li></ul></div>
     <div><h3>Affaires</h3><ul><li><a href="#seminaires">Séminaires & événements</a></li><li><a href="#seminaires">Salles de réunion</a></li><li><a href="#reservation" data-event>Demander un devis</a></li></ul></div>
     <div><h3>Contact</h3><ul>${H.contact.phones.map((p) => `<li><a href="tel:${p.tel}">${esc(p.display)}</a></li>`).join("")}${H.contact.emails.map((m) => `<li><a href="mailto:${m.value}" style="overflow-wrap:anywhere">${esc(m.value)}</a></li>`).join("")}</ul></div>`;
-  $("#f-bottom").innerHTML = `<span>© ${new Date().getFullYear()} ${esc(H.name)} · ${esc(H.contact.website)}</span><span>${esc(H.credit)} Visuels d'illustration, photographies officielles à intégrer.</span>`;
+  $("#f-bottom").innerHTML = `<span>© ${new Date().getFullYear()} ${esc(H.name)} · ${esc(H.contact.website)}</span><span>${esc(H.credit)} Photographies : ${esc(H.name)}.</span>`;
 
   hydrateMedia();
 

@@ -89,10 +89,11 @@ window.HOTEL = {
     points: ["2 bassins", "Bar côté piscine", "Piscine extérieure"]
   },
 
+  /* Aucune photo du rooftop fournie : la section met en avant les bars. */
   rooftop: {
-    eyebrow: "Rooftop",
-    title: "Le rooftop, au-dessus de Grand Standing",
-    text: "Un bar sur le toit de l'hôtel, pour prendre un verre au-dessus du quartier à la tombée du jour."
+    eyebrow: "Bars & rooftop",
+    title: "Un bar au bord de la piscine, un autre sur le toit",
+    text: "Cocktails, jus frais et boissons fraîches : l'hôtel compte deux bars, l'un côté piscine et l'autre sur le rooftop, pour prendre un verre au-dessus de Grand Standing à la tombée du jour."
   },
 
   dining: {
@@ -138,19 +139,24 @@ window.HOTEL = {
   gallery: [
     { image: "facade", cat: "Hôtel" },
     { image: "pool", cat: "Piscine" },
-    { image: "rooftop", cat: "Rooftop" },
-    { image: "roomStandard", cat: "Chambres" },
-    { image: "restaurant", cat: "Restaurant" },
+    { image: "suiteJunior", cat: "Chambres" },
+    { image: "restaurant", cat: "Restaurant & bar" },
     { image: "seminar", cat: "Séminaires" },
+    { image: "entrance", cat: "Hôtel" },
+    { image: "cocktails", cat: "Restaurant & bar" },
     { image: "poolDeck", cat: "Piscine" },
+    { image: "roomSuperieure", cat: "Chambres" },
+    { image: "lounge", cat: "Hôtel" },
+    { image: "banquet", cat: "Séminaires" },
+    { image: "barMural", cat: "Restaurant & bar" },
     { image: "suiteSenior", cat: "Chambres" },
-    { image: "rooftopBar", cat: "Rooftop" },
-    { image: "billiard", cat: "Espaces communs" },
-    { image: "bar", cat: "Restaurant" },
-    { image: "facadeNight", cat: "Hôtel" },
-    { image: "business", cat: "Espaces communs" },
-    { image: "seminarBoard", cat: "Séminaires" },
-    { image: "fitness", cat: "Espaces communs" }
+    { image: "burger", cat: "Restaurant & bar" },
+    { image: "business", cat: "Séminaires" },
+    { image: "hall", cat: "Hôtel" },
+    { image: "bathroom", cat: "Chambres" },
+    { image: "dessert", cat: "Restaurant & bar" },
+    { image: "car", cat: "Hôtel" },
+    { image: "robes", cat: "Chambres" }
   ],
 
   seo: {
