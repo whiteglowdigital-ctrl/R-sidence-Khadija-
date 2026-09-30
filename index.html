@@ -65,6 +65,9 @@ p{margin:0}
 .btn-primary::before{background:var(--copper-2)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(216,132,58,.45)}
 .btn-dark{background:var(--deep);color:var(--on-dark)}
+.btn-wa{background:#25D366;color:#0B2B16;box-shadow:0 10px 30px rgba(37,211,102,.3)}
+.btn-wa::before{background:#4BE083}
+.btn-wa:hover{transform:translateY(-2px)}
 .btn-dark::before{background:var(--deep-3)}
 .btn-line{border-color:var(--copper);color:var(--copper-ink)}
 .btn-line::before{background:var(--copper)}
@@ -743,7 +746,7 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
               <span class="err" id="err-contact" hidden style="grid-column:1/-1">Ajoutez un téléphone ou un e-mail.</span>
               <div class="f full"><label for="c-msg">Message (facultatif)</label><textarea id="c-msg" placeholder="Heure d'arrivée, besoin d'une navette, demande particulière…"></textarea></div>
             </fieldset>
-            <div class="form-foot"><small>Prototype : aucune donnée n'est envoyée automatiquement. La demande est préparée pour être transmise à l'hôtel.</small><button class="btn btn-primary" type="submit">Préparer ma demande <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+            <div class="form-foot"><small>Votre demande sera envoyée à l'hôtel sur WhatsApp.</small><button class="btn btn-primary" type="submit">Préparer ma demande <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           </form>
           <div class="summary" id="summary" hidden tabindex="-1"></div>
         </div>
@@ -804,6 +807,7 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
     phone: '<path d="M5 3.5h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.6 6.6l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/>',
     mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/>',
     check: '<path d="m4.5 12.5 4.5 4.5 10.5-10.5"/>',
+    whatsapp: '<path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 2.8 6.5 6.5 6.5l1-1.6-2-1-1 .9a4.6 4.6 0 0 1-2.3-2.3l.9-1-1-2z"/>',
     copy: '<rect x="8.5" y="8.5" width="12" height="12" rx="2"/><path d="M15.5 8.5V5a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 5v9A1.5 1.5 0 0 0 5 15.5h3.5"/>',
     arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
     zoom: '<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M11 8.5v5M8.5 11h5"/>',
@@ -1047,36 +1051,32 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
     $("#err-name").hidden = !!name; $("#err-contact").hidden = !!(phone || mail);
     if (!name) return $("#c-name").focus();
     if (!phone && !mail) return $("#c-phone").focus();
-    let rows, subject, to;
+    let rows;
     if (kind === "sejour") {
       const room = roomById($("#r-room").value), n = nights($("#r-in").value, $("#r-out").value);
       if (n < 1) { toast("La date de départ doit suivre l'arrivée."); return $("#r-out").focus(); }
       rows = [["Arrivée", fmtDate($("#r-in").value)], ["Départ", fmtDate($("#r-out").value)], ["Durée", `${n} nuit${n > 1 ? "s" : ""}`], ["Voyageurs", $("#r-guests").value], ["Catégorie", room ? room.name : "Toutes catégories"]];
       if (room?.price) rows.push(["Tarif indicatif", `${fmtPrice(room.price)} ${H.currency} / nuit, à confirmer`]);
-      subject = `Demande de disponibilité : ${room ? room.name : "chambre"}, ${$("#r-in").value} au ${$("#r-out").value}`;
-      to = H.contact.emails[0].value;
     } else {
       rows = [["Date souhaitée", fmtDate($("#e-date").value)], ["Participants", $("#e-pax").value || "à préciser"], ["Type", $("#e-type").value]];
-      subject = `Demande d'information événement : ${$("#e-type").value}, ${$("#e-date").value}`;
-      to = H.contact.emails[1].value;
     }
     rows.push(["Nom", name]); if (phone) rows.push(["Téléphone", phone]); if (mail) rows.push(["E-mail", mail]);
     const msg = $("#c-msg").value.trim();
     const body = `Bonjour,\n\nJe souhaite ${kind === "sejour" ? "connaître vos disponibilités pour le séjour suivant" : "des informations pour organiser un événement à l'hôtel"} :\n\n` +
       rows.map(([k, v]) => `• ${k} : ${v}`).join("\n") + (msg ? `\n\n${msg}` : "") + `\n\nMerci de me recontacter.\n${name}`;
-    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const wa = H.contact.whatsapp, waLink = `https://wa.me/${wa.number}?text=${encodeURIComponent(body)}`;
     const s = $("#summary");
     s.innerHTML = `<span class="eyebrow">Votre demande est prête</span>
       <h3>${kind === "sejour" ? "Demande de disponibilité" : "Demande pour un événement"}</h3>
       <dl>${rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
-      <label for="msg-out" class="note">Message adressé à ${esc(to)}</label>
+      <label for="msg-out" class="note">Message envoyé sur WhatsApp au ${esc(wa.display)}</label>
       <textarea id="msg-out" readonly>${esc(body)}</textarea>
       <div class="btn-row">
-        <a class="btn btn-primary" href="${mailto}">${ico("mail")}Envoyer par e-mail</a>
+        <a class="btn btn-wa" href="${waLink}" target="_blank" rel="noopener">${ico("whatsapp")}Envoyer sur WhatsApp</a>
         <button class="btn btn-line" type="button" id="copy-msg">${ico("copy")}Copier</button>
         <a class="btn btn-line" href="tel:${p0.tel}">${ico("phone")}${esc(p0.display)}</a>
       </div>
-      <p class="note">Prototype : rien n'a encore été transmis. Envoyez le message par e-mail ou appelez la réception pour confirmer. <button class="link" type="button" id="edit-req">Modifier ma demande</button></p>`;
+      <p class="note"><button class="link" type="button" id="edit-req">Modifier ma demande</button></p>`;
     $("#req").hidden = true; s.hidden = false; $$("#steps li")[2].classList.add("on");
     $("#copy-msg").onclick = (ev) => copy(body, ev.currentTarget, $("#msg-out"));
     $("#edit-req").onclick = () => { showForm(); $("#c-name").focus(); };

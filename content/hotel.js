@@ -29,8 +29,8 @@ window.HOTEL = {
       { label: "Commercial & séminaires", value: "commercial@residenceskhadija.com" }
     ],
     website: "www.residenceskhadija.com",
-    /* WhatsApp : laisser null tant qu'un numéro WhatsApp n'a pas été confirmé par l'hôtel. */
-    whatsapp: null
+    /* WhatsApp : numéro qui reçoit les demandes de séjour et d'événement (format international, chiffres uniquement). */
+    whatsapp: { display: "+221 77 766 62 84", number: "221777666284" }
   },
 
   hero: {
