@@ -12,7 +12,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap">
-<script>document.documentElement.classList.add("js");</script>
+<script>
+document.documentElement.classList.add("js");
+/* Le site s'ouvre toujours sur l'accueil : pas de retour automatique à l'ancienne position ni à une ancre (#reservation…). */
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+</script>
 <style>
 /* Layout : hero immersif plein écran, séparateurs en vagues, photos en arches et en cercles, mosaïque « bento » ; colonne de 1280px.
    Palette tirée du logo et de la façade : olive profond + cuivre, fonds sable. Look unique assumé (pas de thème sombre alternatif). */
@@ -773,9 +778,9 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="content/hotel.js?v=7"></script>
-<script src="content/images.js?v=7"></script>
-<script src="ui/scenes.js?v=7"></script>
+<script src="content/hotel.js?v=8"></script>
+<script src="content/images.js?v=8"></script>
+<script src="ui/scenes.js?v=8"></script>
 <script>
 (function () {
   const H = window.HOTEL, IMG = window.HOTEL_IMAGES;
@@ -1111,6 +1116,17 @@ legend{font-family:var(--f-display);font-size:28px;font-weight:600;margin-bottom
     ticking = false;
   }
   addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  /* Liens internes : défilement vers la section sans ajouter d'ancre dans l'adresse (le lien partagé reste celui de l'accueil). */
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]'); if (!a || e.defaultPrevented) return;
+    const id = a.getAttribute("href").slice(1), target = id ? document.getElementById(id) : null;
+    if (!target && id !== "top") return;
+    e.preventDefault();
+    if (id === "top") scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    else target.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+  });
+  const toTop = () => scrollTo({ top: 0, behavior: "auto" });
+  toTop(); addEventListener("load", toTop); addEventListener("pageshow", (e) => { if (e.persisted) toTop(); });
   onScroll(); trackState();
 
   /* ---------- Apparitions + compteurs (uniquement pour ce qui est sous la ligne de flottaison) ---------- */
