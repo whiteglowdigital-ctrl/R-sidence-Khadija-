@@ -28,10 +28,10 @@ window.HOTEL = {
       { label: "Réservations", display: "+221 77 000 00 00", tel: "" }
     ],
     emails: [
-      { label: "Réservations", value: "reservations@jefya-hotel.demo" },
-      { label: "Séminaires & événements", value: "evenements@jefya-hotel.demo" }
+      { label: "Réservations", value: "reservations@jefyahotel.demo" },
+      { label: "Séminaires & événements", value: "evenements@jefyahotel.demo" }
     ],
-    website: "jefya-hotel.demo",
+    website: "jefyahotel.demo",
     /* WhatsApp : null en démo. Pour un vrai hôtel : { display: "+221 …", number: "221…" } */
     whatsapp: null
   },
