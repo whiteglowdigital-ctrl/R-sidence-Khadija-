@@ -1,140 +1,141 @@
 /* =====================================================================
-   CONTENU — Hôtel Résidence Khadija
+   CONTENU — Jëfya Hôtel (établissement FICTIF, site de démonstration)
    ---------------------------------------------------------------------
    Ce fichier ne contient QUE des données. L'interface (index.html) les lit.
-   Pour un autre hôtel : dupliquer ce fichier et content/images.js.
-   Toute information marquée `verified: false` doit être confirmée
-   par l'établissement avant une mise en ligne réelle.
+   Pour un vrai client : dupliquer ce fichier et content/images.js,
+   remplacer chaque valeur par les informations réelles de l'hôtel,
+   puis passer `demo` à false et renseigner `contact.whatsapp`.
    ===================================================================== */
 window.HOTEL = {
-  name: "Hôtel Résidence Khadija",
-  wordmark: { top: "Hôtel Résidence", bottom: "Khadija" },
-  tagline: "Une adresse de standing à Thiès",
+  /* Mode démo : les boutons d'appel et WhatsApp affichent un message au lieu d'appeler un vrai numéro. */
+  demo: true,
+
+  name: "Jëfya Hôtel",
+  wordmark: { top: "Hôtel", bottom: "Jëfya" },
+  tagline: "Un hôtel en bord de mer sur la Petite-Côte",
 
   location: {
-    district: "Grand Standing",
-    city: "Thiès",
+    district: "Saly",
+    city: "Petite-Côte",
     country: "Sénégal",
-    detail: "Quartier derrière JAH OIL",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=H%C3%B4tel+R%C3%A9sidence+Khadija+Grand+Standing+Thi%C3%A8s"
+    detail: "Adresse fictive",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Saly+S%C3%A9n%C3%A9gal"
   },
 
   contact: {
     phones: [
-      { label: "Réception", display: "+221 33 989 09 09", tel: "+221339890909" },
-      { label: "Mobile", display: "+221 77 766 62 84", tel: "+221777666284" }
+      { label: "Réception", display: "+221 33 000 00 00", tel: "" },
+      { label: "Réservations", display: "+221 77 000 00 00", tel: "" }
     ],
     emails: [
-      { label: "Direction & réservations", value: "direction@residenceskhadija.com" },
-      { label: "Commercial & séminaires", value: "commercial@residenceskhadija.com" }
+      { label: "Réservations", value: "reservations@jefya-hotel.demo" },
+      { label: "Séminaires & événements", value: "evenements@jefya-hotel.demo" }
     ],
-    website: "www.residenceskhadija.com",
-    /* WhatsApp : numéro qui reçoit les demandes de séjour et d'événement (format international, chiffres uniquement). */
-    whatsapp: { display: "+221 77 766 62 84", number: "221777666284" }
+    website: "jefya-hotel.demo",
+    /* WhatsApp : null en démo. Pour un vrai hôtel : { display: "+221 …", number: "221…" } */
+    whatsapp: null
   },
 
   hero: {
-    script: "Bienvenue à Thiès",
-    eyebrow: "Grand Standing · Thiès · Sénégal",
-    title: "Hôtel Résidence Khadija",
-    subtitle: "Une adresse de standing à Thiès, pour les séjours d'affaires comme pour la découverte de la région."
+    script: "Bienvenue sur la Petite-Côte",
+    eyebrow: "Saly · Petite-Côte · Sénégal",
+    title: "Jëfya Hôtel",
+    subtitle: "Un hôtel en bord de mer pensé pour les escapades comme pour les séminaires, à une heure de Dakar."
   },
 
   intro: {
     eyebrow: "L'hôtel",
-    title: "Au calme de Grand Standing, au cœur de la cité du rail",
+    title: "Entre l'océan et les palmiers, une adresse pour ralentir",
     paragraphs: [
-      "L'Hôtel Résidence Khadija s'est installé dans Grand Standing, le quartier résidentiel de Thiès. Il réunit sous un même toit 32 chambres et suites, deux bassins, un rooftop et trois salles de séminaire.",
-      "Le voyageur d'affaires y trouve un espace de travail et des salles équipées. Le visiteur de passage y trouve une piscine, un rooftop et une table sur place, à deux pas de la ville."
+      "Jëfya Hôtel réunit 48 chambres et suites, une piscine à débordement face à l'océan, un restaurant, un bar lounge et deux salles de séminaire, dans un jardin planté de palmiers.",
+      "On y vient pour un week-end au soleil, pour une semaine en famille ou pour réunir une équipe le temps d'un séminaire. Le personnel s'occupe du reste, de l'arrivée au départ."
     ]
   },
 
-  /* Chiffres réels communiqués par l'hôtel — aucune statistique inventée. */
+  /* Chiffres de démonstration */
   keyFigures: [
-    { value: "32", label: "chambres, dont 6 suites" },
-    { value: "3", label: "salles de séminaire" },
-    { value: "300", label: "places dans la grande salle" },
-    { value: "2", label: "bassins extérieurs" }
+    { value: "48", label: "chambres, dont 8 suites" },
+    { value: "2", label: "salles de séminaire" },
+    { value: "250", label: "places dans la grande salle" },
+    { value: "1", label: "piscine à débordement" }
   ],
 
-  /* Chambres : aucune caractéristique technique inventée (surface, vue, literie…).
-     price : tarif indicatif affiché sur le site officiel, à confirmer (verified:false). */
+  /* Tarifs de démonstration */
   rooms: [
-    { id: "standard", kind: "Chambre", name: "Chambre Standard", image: "roomStandard",
-      blurb: "La catégorie de référence de la résidence, pour un séjour de travail ou une escale à Thiès.",
-      price: 65000, verified: false },
+    { id: "classique", kind: "Chambre", name: "Chambre Classique", image: "roomStandard",
+      blurb: "Lit double, salle de douche et bureau : l'essentiel pour un séjour simple et reposant.",
+      price: 55000 },
     { id: "superieure", kind: "Chambre", name: "Chambre Supérieure", image: "roomSuperieure",
-      blurb: "Une montée en gamme par rapport à la Standard.",
-      price: null },
-    { id: "executive", kind: "Chambre", name: "Chambre Exécutive", image: "roomExecutive",
-      blurb: "Pensée pour la clientèle professionnelle de passage à Thiès.",
-      price: 60000, verified: false },
-    { id: "famille", kind: "Chambre", name: "Chambre Famille", image: "roomFamille",
-      blurb: "Pour voyager à plusieurs sans se séparer.",
-      price: 60000, verified: false },
+      blurb: "Plus d'espace, un coin lecture et une lumière douce en fin de journée.",
+      price: 70000 },
+    { id: "deluxe", kind: "Chambre", name: "Chambre Deluxe", image: "roomExecutive",
+      blurb: "Un salon intégré pour travailler ou se détendre avant le dîner.",
+      price: 90000 },
+    { id: "familiale", kind: "Chambre", name: "Chambre Familiale", image: "roomFamille",
+      blurb: "Deux lits pour voyager en famille sans réserver deux chambres.",
+      price: 85000 },
     { id: "suite-junior", kind: "Suite", name: "Suite Junior", image: "suiteJunior",
-      blurb: "L'une des 6 suites de l'hôtel.",
-      price: 75000, verified: false },
-    { id: "suite-senior", kind: "Suite", name: "Suite Senior", image: "suiteSenior",
-      blurb: "La suite la plus haute de la gamme.",
-      price: null }
+      blurb: "Une chambre spacieuse aux tons chauds, pensée pour les longs séjours.",
+      price: 120000 },
+    { id: "suite-prestige", kind: "Suite", name: "Suite Prestige", image: "suiteSenior",
+      blurb: "La plus grande suite de l'hôtel, avec un espace salon ouvert sur la lumière.",
+      price: 180000 }
   ],
-  roomsCommon: ["Ouverture des portes par carte RFID", "Wi-Fi haut débit gratuit", "Climatisation", "Service en chambre"],
-  priceNote: "Tarifs indicatifs par nuitée, publiés par l'hôtel et à confirmer au moment de la demande.",
+  roomsCommon: ["Accès par carte magnétique", "Wi-Fi haut débit gratuit", "Climatisation", "Service en chambre"],
+  priceNote: "Tarifs de démonstration par nuitée, petit-déjeuner non inclus.",
   currency: "FCFA",
 
   pool: {
     eyebrow: "Piscine",
-    title: "Deux bassins en plein air",
-    text: "La piscine extérieure compte deux bassins, avec un bar côté piscine pour les fins d'après-midi.",
-    points: ["2 bassins", "Bar côté piscine", "Piscine extérieure"]
+    title: "Une piscine à débordement face à l'océan",
+    text: "Transats, cabanas et service au bord de l'eau, du matin jusqu'au coucher du soleil.",
+    points: ["Vue sur l'océan", "Cabanas", "Service au bord de l'eau"]
   },
 
-  /* Aucune photo du rooftop fournie : la section met en avant les bars. */
   rooftop: {
-    eyebrow: "Bars & rooftop",
-    title: "Un bar au bord de la piscine, un autre sur le toit",
-    text: "Cocktails, jus frais et boissons fraîches : l'hôtel compte deux bars, l'un côté piscine et l'autre sur le rooftop, pour prendre un verre au-dessus de Grand Standing à la tombée du jour."
+    eyebrow: "Bar lounge",
+    title: "Le bar lounge, pour finir la journée",
+    text: "Cocktails maison, jus de fruits frais et boissons fraîches, à prendre au comptoir ou sur la terrasse quand le soleil se couche."
   },
 
   dining: {
     eyebrow: "Restauration",
-    title: "Deux restaurants, deux bars",
-    text: "Deux salles de restaurant, un bar au bord de la piscine et un autre sur le rooftop. Le petit-déjeuner est servi sur place, et le service en chambre prend le relais.",
+    title: "Un restaurant, un bar lounge",
+    text: "Le restaurant sert une cuisine sénégalaise et internationale, du petit-déjeuner au dîner. Le service en chambre prend le relais à toute heure.",
     items: [
-      { value: "2", label: "salles de restaurant" },
-      { value: "2", label: "bars : piscine & rooftop" },
+      { value: "1", label: "restaurant" },
+      { value: "1", label: "bar lounge" },
       { value: "", label: "Petit-déjeuner" },
       { value: "", label: "Service en chambre" }
     ]
   },
 
   services: [
-    { icon: "pool", name: "Piscine extérieure", note: "2 bassins" },
-    { icon: "rooftop", name: "Rooftop", note: "Bar sur le toit" },
-    { icon: "dining", name: "Restauration", note: "2 restaurants, 2 bars" },
+    { icon: "pool", name: "Piscine à débordement", note: "Face à l'océan" },
+    { icon: "rooftop", name: "Terrasse lounge", note: "Au coucher du soleil" },
+    { icon: "dining", name: "Restaurant", note: "Cuisine locale & internationale" },
     { icon: "fitness", name: "Salle fitness", note: "Sur place" },
-    { icon: "billiard", name: "Billard", note: "Espace détente" },
-    { icon: "business", name: "Business corner", note: "Espace multimédia" },
+    { icon: "billiard", name: "Salon de jeux", note: "Billard & détente" },
+    { icon: "business", name: "Business corner", note: "Espace de travail" },
     { icon: "wifi", name: "Wi-Fi haut débit", note: "Gratuit" },
     { icon: "parking", name: "Parking", note: "Sur place" },
-    { icon: "shuttle", name: "Navette", note: "Service de navette" },
+    { icon: "shuttle", name: "Navette", note: "Aéroport sur demande" },
     { icon: "prayer", name: "Salle de prière", note: "Sur place" },
-    { icon: "roomservice", name: "Service en chambre", note: "Pendant votre séjour" },
-    { icon: "rfid", name: "Accès RFID", note: "Dans toutes les chambres" }
+    { icon: "roomservice", name: "Service en chambre", note: "À toute heure" },
+    { icon: "rfid", name: "Carte magnétique", note: "Dans toutes les chambres" }
   ],
 
   meetings: {
     eyebrow: "Séminaires & événements",
-    title: "Trois salles pour vos réunions et vos événements",
-    text: "Réunions, séminaires, conférences et réceptions : les trois salles de l'hôtel se configurent selon l'événement. L'équipe commerciale vous accompagne dans l'organisation, de l'hébergement des participants à la restauration sur place.",
+    title: "Deux salles pour vos réunions et vos événements",
+    text: "Réunions, séminaires, conférences et réceptions : les salles de l'hôtel se configurent selon l'événement. L'équipe événementielle vous accompagne, de l'hébergement des participants à la restauration sur place.",
     rooms: [
-      { name: "Grande salle", capacity: "300", unit: "personnes max." },
-      { name: "Salle moyenne", capacity: "60", unit: "personnes" },
-      { name: "Salle de commission", capacity: "", unit: "Délibérations et comités restreints" }
+      { name: "Salle Baobab", capacity: "250", unit: "personnes max." },
+      { name: "Salle Téranga", capacity: "80", unit: "personnes" },
+      { name: "Salon privé", capacity: "", unit: "Comités et réunions restreintes" }
     ],
-    total: "Plus de 350 personnes peuvent être accueillies sur l'ensemble des salles.",
-    formats: ["Réunions", "Séminaires", "Conférences", "Réceptions", "Délibérations", "Hébergement des participants"]
+    total: "Plus de 300 personnes peuvent être accueillies sur l'ensemble des espaces.",
+    formats: ["Réunions", "Séminaires", "Conférences", "Réceptions", "Mariages", "Hébergement des participants"]
   },
 
   gallery: [
@@ -149,51 +150,49 @@ window.HOTEL = {
     { image: "roomSuperieure", cat: "Chambres" },
     { image: "lounge", cat: "Hôtel" },
     { image: "banquet", cat: "Séminaires" },
-    { image: "barMural", cat: "Restaurant & bar" },
+    { image: "bar", cat: "Restaurant & bar" },
     { image: "suiteSenior", cat: "Chambres" },
-    { image: "burger", cat: "Restaurant & bar" },
-    { image: "business", cat: "Séminaires" },
-    { image: "hall", cat: "Hôtel" },
+    { image: "food", cat: "Restaurant & bar" },
+    { image: "conference", cat: "Séminaires" },
+    { image: "terrace", cat: "Hôtel" },
     { image: "bathroom", cat: "Chambres" },
     { image: "dessert", cat: "Restaurant & bar" },
-    { image: "car", cat: "Hôtel" },
-    { image: "robes", cat: "Chambres" }
+    { image: "poolNight", cat: "Piscine" },
+    { image: "roomDeluxe", cat: "Chambres" }
   ],
 
-  /* Cartes flottantes du hero (informations réelles uniquement) */
   heroHighlights: [
-    { icon: "pool", title: "Piscine extérieure", note: "2 bassins" },
-    { icon: "rooftop", title: "Rooftop & bars", note: "Côté piscine et sur le toit" },
-    { icon: "business", title: "3 salles de séminaire", note: "Jusqu'à 300 personnes" }
+    { icon: "pool", title: "Piscine à débordement", note: "Face à l'océan" },
+    { icon: "dining", title: "Restaurant & bar lounge", note: "Cuisine locale & internationale" },
+    { icon: "business", title: "2 salles de séminaire", note: "Jusqu'à 250 personnes" }
   ],
   featuredRoom: "suite-junior",
 
   experiences: [
-    { icon: "bed", title: "Chambres & suites", text: "32 chambres, dont 6 suites, avec accès par carte RFID.", href: "#chambres" },
-    { icon: "pool", title: "Piscine & bars", text: "Deux bassins, un bar côté piscine et un bar sur le rooftop.", href: "#experiences" },
-    { icon: "dining", title: "Restauration", text: "Deux salles de restaurant, petit-déjeuner et service en chambre.", href: "#experiences" },
-    { icon: "business", title: "Séminaires", text: "Trois salles équipées, jusqu'à 300 personnes dans la grande salle.", href: "#seminaires" }
+    { icon: "bed", title: "Chambres & suites", text: "48 chambres, dont 8 suites, toutes climatisées avec Wi-Fi gratuit.", href: "#chambres" },
+    { icon: "pool", title: "Piscine & bar", text: "Une piscine à débordement face à l'océan et un bar lounge.", href: "#experiences" },
+    { icon: "dining", title: "Restauration", text: "Un restaurant, le petit-déjeuner et le service en chambre.", href: "#experiences" },
+    { icon: "business", title: "Séminaires", text: "Deux salles équipées, jusqu'à 250 personnes dans la grande salle.", href: "#seminaires" }
   ],
 
-  /* Icônes affichées dans le panneau sombre « Services » */
   amenities: ["pool", "rooftop", "dining", "fitness", "wifi", "shuttle", "billiard", "business", "parking"],
 
   eventSteps: [
     { title: "Votre demande", text: "Date, nombre de participants et type d'événement." },
-    { title: "Proposition", text: "L'équipe commerciale vous propose une salle et un devis." },
+    { title: "Proposition", text: "L'équipe événementielle vous propose une salle et un devis." },
     { title: "Organisation", text: "Hébergement des participants et restauration sur place." },
     { title: "Le jour J", text: "Votre événement se déroule à l'hôtel." }
   ],
 
   cta: {
-    title: "Prêt à séjourner à Thiès ?",
+    title: "Prêt à séjourner sur la Petite-Côte ?",
     text: "Choisissez vos dates : l'équipe de l'hôtel vous confirme la disponibilité et le tarif."
   },
 
   seo: {
-    title: "Hôtel Résidence Khadija · Thiès",
-    description: "Hôtel à Thiès, quartier Grand Standing : 32 chambres dont 6 suites, piscine à deux bassins, rooftop, restaurants et trois salles de séminaire. Demandez vos disponibilités."
+    title: "Jëfya Hôtel · Site de démonstration",
+    description: "Site de démonstration d'un hôtel fictif sur la Petite-Côte : chambres et suites, piscine à débordement, restaurant, bar lounge et salles de séminaire. Conçu par Jëfya."
   },
 
-  credit: "Prototype conçu par Jëfya. Contenus et tarifs à valider par l'établissement."
+  demoNote: "Site de démonstration conçu par Jëfya. L'établissement, les tarifs et les coordonnées sont fictifs."
 };

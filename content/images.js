@@ -1,50 +1,44 @@
 /* =====================================================================
    IMAGES — une seule table pour toutes les photographies du site.
    ---------------------------------------------------------------------
-   src   : chemin de la photo (dossier /images). Vide = illustration `scene`.
-   pos   : cadrage (CSS object-position) quand la photo est recadrée.
-   Photographies fournies par l'hôtel. L'attribution des photos aux
-   catégories de chambres est À CONFIRMER par l'établissement.
+   src : chemin de la photo (dossier /images). Vide = illustration `scene`.
+   pos : cadrage (CSS object-position) quand la photo est recadrée.
+   Photos libres de droits provenant d'Unsplash (licence Unsplash :
+   usage gratuit, y compris commercial, sans attribution obligatoire).
+   Elles illustrent un établissement fictif.
    ===================================================================== */
 window.HOTEL_IMAGES = {
-  hero:           { src: "images/facade-jour.jpeg",        pos: "50% 22%", alt: "Façade de l'Hôtel Résidence Khadija à Thiès, avec son enseigne et ses palmiers" },
-  facade:         { src: "images/facade-jour.jpeg",        pos: "50% 30%", alt: "Façade de l'hôtel" },
-  entrance:       { src: "images/entree-enseigne.jpeg",    pos: "40% 40%", alt: "Entrée de l'hôtel et son enseigne éclairée" },
-  introA:         { src: "images/entree-enseigne.jpeg",    pos: "35% 45%", alt: "Entrée de l'Hôtel Résidence Khadija, enseigne éclairée" },
-  introB:         { src: "images/salon-accueil.jpeg",      pos: "50% 50%", alt: "Salon d'accueil aux fauteuils orange" },
-  lounge:         { src: "images/salon-accueil.jpeg",      pos: "50% 50%", alt: "Salon d'accueil" },
-  hall:           { src: "images/hall-escalier.jpeg",      pos: "50% 50%", alt: "Hall et escalier de l'hôtel" },
-  car:            { src: "images/vehicule-hotel.jpeg",     pos: "50% 60%", alt: "Véhicule aux couleurs de l'hôtel devant la façade" },
+  hero:           { src: "images/hotel-palmiers.jpg",        pos: "50% 55%", alt: "Hôtel aux murs blancs entouré de palmiers, au crépuscule" },
+  facade:         { src: "images/hotel-palmiers.jpg",        pos: "50% 55%", alt: "Bâtiments de l'hôtel et palmiers au crépuscule" },
+  entrance:       { src: "images/hotel-piscine-facade.jpg",  pos: "50% 50%", alt: "Façade blanche de l'hôtel au bord de la piscine" },
+  introA:         { src: "images/hotel-piscine-facade.jpg",  pos: "50% 45%", alt: "Façade blanche de l'hôtel au bord de la piscine" },
+  introB:         { src: "images/salon.jpg",                 pos: "40% 50%", alt: "Salon lumineux avec canapés" },
+  lounge:         { src: "images/salon.jpg",                 pos: "50% 50%", alt: "Salon lumineux avec canapés" },
+  terrace:        { src: "images/terrasse-restaurant.jpg",   pos: "50% 50%", alt: "Terrasse du restaurant au bord de la piscine, à la tombée du jour" },
 
-  /* Chambres — correspondance photo / catégorie à confirmer par l'hôtel */
-  roomStandard:   { src: "images/chambre-double.jpeg",          pos: "50% 55%", alt: "Chambre avec lit double et tête de lit capitonnée" },
-  roomSuperieure: { src: "images/chambre-tete-capitonnee.jpeg", pos: "50% 55%", alt: "Chambre avec lit double et linge aux motifs orange" },
-  roomExecutive:  { src: "images/chambre-canape.jpeg",          pos: "50% 55%", alt: "Chambre avec lit double et canapé" },
-  roomFamille:    { src: "images/chambre-lits-jumeaux.jpeg",    pos: "50% 55%", alt: "Chambre avec deux lits" },
-  suiteJunior:    { src: "images/chambre-coin-salon.jpeg",      pos: "50% 55%", alt: "Chambre avec coin salon et table" },
-  suiteSenior:    { src: "images/suite-sejour.jpeg",            pos: "50% 55%", alt: "Espace séjour avec canapé et coin repas" },
-  roomTwin2:      { src: "images/chambre-lits-jumeaux-2.jpeg",  pos: "50% 55%", alt: "Chambre avec deux lits" },
-  roomDesk:       { src: "images/chambre-bureau.jpeg",          pos: "50% 55%", alt: "Bureau en chambre" },
-  bathroom:       { src: "images/salle-de-bain.jpeg",           pos: "50% 50%", alt: "Salle de bain et peignoir" },
-  robes:          { src: "images/peignoir-logo.jpeg",           pos: "50% 50%", alt: "Peignoir brodé au logo de l'hôtel" },
+  roomStandard:   { src: "images/chambre-classique.jpg",     pos: "50% 55%", alt: "Chambre Classique avec lit double" },
+  roomSuperieure: { src: "images/chambre-superieure.jpg",    pos: "50% 55%", alt: "Chambre Supérieure aux tons clairs" },
+  roomExecutive:  { src: "images/chambre-deluxe.jpg",        pos: "50% 55%", alt: "Chambre Deluxe avec canapé" },
+  roomFamille:    { src: "images/chambre-familiale.jpg",     pos: "50% 55%", alt: "Chambre Familiale avec deux lits" },
+  suiteJunior:    { src: "images/suite-junior.jpg",          pos: "50% 55%", alt: "Suite Junior aux tons chauds" },
+  suiteSenior:    { src: "images/suite-prestige.jpg",        pos: "50% 55%", alt: "Suite Prestige avec espace salon" },
+  roomDeluxe:     { src: "images/chambre-boisee.jpg",        pos: "50% 55%", alt: "Chambre aux boiseries et lumière tamisée" },
+  bathroom:       { src: "images/salle-de-bain.jpg",         pos: "50% 50%", alt: "Salle de bain avec baignoire îlot" },
 
-  pool:           { src: "images/piscine.jpeg",            pos: "50% 62%", alt: "Piscine extérieure bordée de transats et de palmiers" },
-  poolDeck:       { src: "images/piscine-transats.jpeg",   pos: "50% 60%", alt: "Transats et parasol au bord de la piscine" },
+  pool:           { src: "images/piscine-debordement.jpg",   pos: "50% 60%", alt: "Piscine à débordement face à l'océan, avec cabanas" },
+  poolDeck:       { src: "images/terrasse-transats.jpg",     pos: "50% 55%", alt: "Transats et parasols sur la terrasse face à la mer" },
+  poolNight:      { src: "images/piscine-nuit.jpg",          pos: "50% 60%", alt: "Piscine éclairée à la nuit tombée" },
 
-  restaurant:     { src: "images/restaurant.jpeg",         pos: "50% 60%", alt: "Salle de restaurant dressée" },
-  banquet:        { src: "images/salle-banquet.jpeg",      pos: "50% 60%", alt: "Salle dressée en tables longues pour une réception" },
-  bar:            { src: "images/bar-comptoir.jpeg",       pos: "50% 55%", alt: "Comptoir du bar" },
-  barMural:       { src: "images/bar-fresque.jpeg",        pos: "50% 50%", alt: "Bar et sa fresque murale" },
-  cocktails:      { src: "images/cocktails.jpeg",          pos: "50% 50%", alt: "Cocktails servis au bar" },
-  cocktails2:     { src: "images/cocktails-2.jpeg",        pos: "50% 50%", alt: "Cocktails et boissons fraîches" },
-  burger:         { src: "images/burger-piscine.jpeg",     pos: "50% 55%", alt: "Burger servi au bord de la piscine" },
-  dessert:        { src: "images/fondant-chocolat.jpeg",   pos: "50% 50%", alt: "Fondant au chocolat" },
-  coffee:         { src: "images/cafe-frappe.jpeg",        pos: "50% 50%", alt: "Café frappé" },
+  restaurant:     { src: "images/restaurant.jpg",            pos: "50% 50%", alt: "Salle du restaurant" },
+  bar:            { src: "images/bar.jpg",                   pos: "50% 50%", alt: "Comptoir du bar lounge" },
+  cocktails:      { src: "images/cocktails.jpg",             pos: "50% 50%", alt: "Cocktails maison au comptoir" },
+  dessert:        { src: "images/plat.jpg",                  pos: "50% 55%", alt: "Plat servi au restaurant" },
+  food:           { src: "images/assiettes.jpg",             pos: "50% 50%", alt: "Assiettes du restaurant" },
 
-  seminar:        { src: "images/seminaire-salle-u.jpeg",  pos: "50% 50%", alt: "Salle de séminaire en U avec écran de projection" },
-  seminarBoard:   { src: "images/seminaire-salle-2.jpeg",  pos: "50% 50%", alt: "Salle de réunion en U" },
-  business:       { src: "images/business-corner.jpeg",    pos: "50% 50%", alt: "Business corner et postes informatiques" },
+  seminar:        { src: "images/salle-seminaire.jpg",       pos: "50% 50%", alt: "Salle de séminaire lumineuse avec grande table" },
+  banquet:        { src: "images/salle-reception.jpg",       pos: "50% 50%", alt: "Salle de réception dressée pour un événement" },
+  conference:     { src: "images/conference.jpg",            pos: "50% 50%", alt: "Conférence devant un grand écran" },
 
-  /* Pas de photo fournie : illustration conservée */
-  map:            { src: "", scene: "map",                 alt: "Plan stylisé du quartier Grand Standing à Thiès" }
+  /* Pas de photo : plan stylisé */
+  map:            { src: "", scene: "map",                   alt: "Plan stylisé du quartier" }
 };
