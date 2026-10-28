@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jefya.pages.dev/sitemap.xml
