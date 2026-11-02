@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="images/photo-accueil.jpg">
+<link rel="preload" as="image" type="image/webp" imagesrcset="images/photo-accueil-480.webp 480w, images/photo-accueil-800.webp 800w, images/photo-accueil.webp 1000w" imagesizes="(min-width:960px) 500px, calc(100vw - 40px)" fetchpriority="high">
 
 <script>
 // Écran d'ouverture : une seule fois par visite
@@ -614,8 +614,8 @@ h1 em,h2 em,h3 em,.big em,.hv .say p em{font-family:"Playfair Display",Georgia,s
       <div class="blob" aria-hidden="true"></div>
       <svg class="branch" aria-hidden="true"><use href="#branch"/></svg>
       <!-- Photo 1 · Accueil : images/photo-accueil.jpg -->
-      <div class="photo"><img src="images/photo-accueil.jpg" width="1000" height="1250" alt="La fondatrice de Jëfya à son bureau, une tasse à la main" fetchpriority="high"></div>
-      <div class="chip"><i style="background-image:url(images/maquette-restaurant-ordinateur.jpg)"></i><span>Sites sur mesure<small>Vitrine · E-commerce</small></span></div>
+      <div class="photo"><img src="images/photo-accueil.jpg" srcset="images/photo-accueil-480.webp 480w, images/photo-accueil-800.webp 800w, images/photo-accueil.webp 1000w" sizes="(min-width:960px) 500px, calc(100vw - 40px)" width="1000" height="1250" alt="La fondatrice de Jëfya à son bureau, une tasse à la main" fetchpriority="high"></div>
+      <div class="chip"><i style="background-image:url(images/chip-resto.webp)"></i><span>Sites sur mesure<small>Vitrine · E-commerce</small></span></div>
       <svg class="curl" viewBox="0 0 70 60" aria-hidden="true"><path d="M64 4C40 6 20 18 20 36c0 10 8 16 16 12M20 36l-8 6M20 36l3 9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="3 4"/></svg>
       <div class="say"><svg aria-hidden="true"><use href="#sparkle"/></svg><p>Un design soigné. Des <em>résultats</em> concrets.</p></div>
     </div>
@@ -629,7 +629,7 @@ h1 em,h2 em,h3 em,.big em,.hv .say p em{font-family:"Playfair Display",Georgia,s
     <div class="wrap about-grid">
       <div class="ab-photo reveal">
         <!-- Photo 2 · L'agence : images/photo-travail.jpg -->
-        <div class="img"><img src="images/photo-travail.jpg" width="900" height="1080" alt="Les mains de la fondatrice de Jëfya sur son ordinateur, un site web à l'écran" loading="lazy"></div>
+        <div class="img"><img src="images/photo-travail.jpg" srcset="images/photo-travail-450.webp 450w, images/photo-travail.webp 900w" sizes="(min-width:960px) 310px, calc(100vw - 76px)" width="900" height="1080" alt="Les mains de la fondatrice de Jëfya sur son ordinateur, un site web à l'écran" loading="lazy"></div>
         <div class="seal" aria-hidden="true">
           <svg class="ring" viewBox="0 0 122 122"><defs><path id="c2" d="M61 61m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs><text fill="#E6C687" font-family="Jost" font-size="9.5" letter-spacing="3.6"><textPath href="#c2">DESIGN • STRATÉGIE • CROISSANCE •</textPath></text></svg>
           <svg class="star"><use href="#sparkle"/></svg>
@@ -738,25 +738,25 @@ h1 em,h2 em,h3 em,.big em,.hv .say p em{font-family:"Playfair Display",Georgia,s
       </div>
       <div class="works">
         <article class="pj reveal">
-          <a class="stage" href="projet-hotel.html" aria-label="Voir les détails de Jëfya Hôtel"><div class="laptop"><div class="scr"><div class="vp"><img src="images/maquette-hotel-ordinateur.jpg" width="1000" height="625" alt="Site Jëfya Hôtel, version ordinateur" loading="lazy"></div></div><div class="base"></div></div><div class="phone"><div class="vp"><img src="images/maquette-hotel-mobile.jpg" width="360" height="760" alt="" loading="lazy"></div></div></a>
+          <a class="stage" href="projet-hotel.html" aria-label="Voir les détails de Jëfya Hôtel"><div class="laptop"><div class="scr"><div class="vp"><img src="images/maquette-hotel-ordinateur.jpg" srcset="images/maquette-hotel-ordinateur.webp" width="1000" height="625" alt="Site Jëfya Hôtel, version ordinateur" loading="lazy"></div></div><div class="base"></div></div><div class="phone"><div class="vp"><img src="images/maquette-hotel-mobile.jpg" srcset="images/maquette-hotel-mobile.webp" width="360" height="760" alt="" loading="lazy"></div></div></a>
           <div class="meta"><div><span class="cat">Hôtellerie</span><h3>Jëfya Hôtel</h3></div><a class="tag" href="projet-hotel.html">Voir les détails →</a></div>
           <p class="pj-desc">Un site vitrine haut de gamme pour hôtels, résidences et lodges : chambres et suites, piscine, restaurant, séminaires, galerie et demande de réservation sur WhatsApp.</p>
           <a class="pj-cta" href="https://wa.me/221764052386?text=Bonjour%20J%C3%ABfya%2C%20j%27ai%20vu%20votre%20d%C3%A9mo%20J%C3%ABfya%20H%C3%B4tel%20%28https%3A//jefyahotel.netlify.app%29.%20Je%20voudrais%20la%20m%C3%AAme%20chose%20pour%20mon%20%C3%A9tablissement%20%3A%20site%20d%27h%C3%B4tel%20avec%20pr%C3%A9sentation%20des%20chambres%2C%20galerie%2C%20s%C3%A9minaires%20et%20r%C3%A9servation%20en%20ligne.%20Nom%20de%20mon%20%C3%A9tablissement%20%3A%20%E2%80%A6%20Ville%20%3A%20%E2%80%A6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Demander la même chose pour mon entreprise</a>
         </article>
         <article class="pj reveal d1">
-          <a class="stage" href="projet-resto.html" aria-label="Voir les détails de Jëfya Resto"><div class="laptop"><div class="scr"><div class="vp"><img src="images/maquette-restaurant-ordinateur.jpg" width="1000" height="625" alt="Site Jëfya Resto, version ordinateur" loading="lazy"></div></div><div class="base"></div></div><div class="phone"><div class="vp"><img src="images/maquette-restaurant-mobile.jpg" width="360" height="760" alt="" loading="lazy"></div></div></a>
+          <a class="stage" href="projet-resto.html" aria-label="Voir les détails de Jëfya Resto"><div class="laptop"><div class="scr"><div class="vp"><img src="images/maquette-restaurant-ordinateur.jpg" srcset="images/maquette-restaurant-ordinateur.webp" width="1000" height="625" alt="Site Jëfya Resto, version ordinateur" loading="lazy"></div></div><div class="base"></div></div><div class="phone"><div class="vp"><img src="images/maquette-restaurant-mobile.jpg" srcset="images/maquette-restaurant-mobile.webp" width="360" height="760" alt="" loading="lazy"></div></div></a>
           <div class="meta"><div><span class="cat">Restauration</span><h3>Jëfya Resto</h3></div><a class="tag" href="projet-resto.html">Voir les détails →</a></div>
           <p class="pj-desc">Un site pour restaurants : la carte en ligne, la commande avec panier et livraison, et la réservation de table, le tout envoyé directement sur votre WhatsApp.</p>
           <a class="pj-cta" href="https://wa.me/221764052386?text=Bonjour%20J%C3%ABfya%2C%20j%27ai%20vu%20votre%20d%C3%A9mo%20J%C3%ABfya%20Resto%20%28https%3A//jefyaresto.netlify.app%29.%20Je%20voudrais%20la%20m%C3%AAme%20chose%20pour%20mon%20restaurant%20%3A%20carte%20en%20ligne%2C%20galerie%2C%20r%C3%A9servation%20de%20table%20et%20commande%20en%20ligne.%20Nom%20du%20restaurant%20%3A%20%E2%80%A6%20Ville%20%3A%20%E2%80%A6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Demander la même chose pour mon entreprise</a>
         </article>
         <article class="pj reveal d2">
-          <a class="stage" href="projet-couture.html" aria-label="Voir les détails de Jëfya Couture"><div class="laptop"><div class="scr"><div class="vp"><img src="images/maquette-boutique-ordinateur.jpg" width="1000" height="625" alt="Site Jëfya Couture, version ordinateur" loading="lazy"></div></div><div class="base"></div></div><div class="phone"><div class="vp"><img src="images/maquette-boutique-mobile.jpg" width="360" height="760" alt="" loading="lazy"></div></div></a>
+          <a class="stage" href="projet-couture.html" aria-label="Voir les détails de Jëfya Couture"><div class="laptop"><div class="scr"><div class="vp"><img src="images/maquette-boutique-ordinateur.jpg" srcset="images/maquette-boutique-ordinateur.webp" width="1000" height="625" alt="Site Jëfya Couture, version ordinateur" loading="lazy"></div></div><div class="base"></div></div><div class="phone"><div class="vp"><img src="images/maquette-boutique-mobile.jpg" srcset="images/maquette-boutique-mobile.webp" width="360" height="760" alt="" loading="lazy"></div></div></a>
           <div class="meta"><div><span class="cat">Mode</span><h3>Jëfya Couture</h3></div><a class="tag" href="projet-couture.html">Voir les détails →</a></div>
           <p class="pj-desc">Une boutique de mode africaine en ligne, pensée pour vendre par WhatsApp, au Sénégal comme dans la diaspora : catalogue, prix en 3 devises, panier et commande complète.</p>
           <a class="pj-cta" href="https://wa.me/221764052386?text=Bonjour%20J%C3%ABfya%2C%20j%27ai%20vu%20votre%20d%C3%A9mo%20J%C3%ABfya%20Couture%20%28https%3A//jefyacouture.netlify.app%29.%20Je%20voudrais%20la%20m%C3%AAme%20chose%20pour%20ma%20marque%20%3A%20catalogue%20de%20collection%2C%20prix%20en%20plusieurs%20devises%2C%20panier%20et%20commande%20sur%20WhatsApp.%20Nom%20de%20ma%20marque%20%3A%20%E2%80%A6%20Ville%20%3A%20%E2%80%A6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Demander la même chose pour mon entreprise</a>
         </article>
         <article class="pj reveal d3">
-          <a class="stage" href="projet-immo.html" aria-label="Voir les détails de Jëfya Immo"><div class="laptop"><div class="scr"><div class="vp"><img src="images/maquette-immo-ordinateur.jpg" width="1000" height="625" alt="Site Jëfya Immo, version ordinateur" loading="lazy"></div></div><div class="base"></div></div><div class="phone"><div class="vp"><img src="images/maquette-immo-mobile.jpg" width="360" height="760" alt="" loading="lazy"></div></div></a>
+          <a class="stage" href="projet-immo.html" aria-label="Voir les détails de Jëfya Immo"><div class="laptop"><div class="scr"><div class="vp"><img src="images/maquette-immo-ordinateur.jpg" srcset="images/maquette-immo-ordinateur.webp" width="1000" height="625" alt="Site Jëfya Immo, version ordinateur" loading="lazy"></div></div><div class="base"></div></div><div class="phone"><div class="vp"><img src="images/maquette-immo-mobile.jpg" srcset="images/maquette-immo-mobile.webp" width="360" height="760" alt="" loading="lazy"></div></div></a>
           <div class="meta"><div><span class="cat">Immobilier</span><h3>Jëfya Immo</h3></div><a class="tag" href="projet-immo.html">Voir les détails →</a></div>
           <p class="pj-desc">Un site pour agences immobilières : biens à vendre et à louer, terrains, gérance et construction, avec une recherche par quartier, type de bien et budget, et un contact direct sur WhatsApp.</p>
           <a class="pj-cta" href="https://wa.me/221764052386?text=Bonjour%20J%C3%ABfya%2C%20j%27ai%20vu%20votre%20d%C3%A9mo%20J%C3%ABfya%20Immo%20%28https%3A//jefyaimmo.netlify.app%29.%20Je%20voudrais%20la%20m%C3%AAme%20chose%20pour%20mon%20agence%20%3A%20biens%20%C3%A0%20vendre%20et%20%C3%A0%20louer%2C%20terrains%2C%20g%C3%A9rance%2C%20recherche%20par%20quartier%20et%20contact%20WhatsApp.%20Nom%20de%20mon%20agence%20%3A%20%E2%80%A6%20Ville%20%3A%20%E2%80%A6%20Nombre%20de%20biens%20environ%20%3A%20%E2%80%A6" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Demander la même chose pour mon entreprise</a>
@@ -778,8 +778,8 @@ h1 em,h2 em,h3 em,.big em,.hv .say p em{font-family:"Playfair Display",Georgia,s
         <span class="by">Jëfya</span>
       </div>
       <div class="stage3d" aria-hidden="true">
-        <div class="lap"><div class="scr"><div class="vp"><img src="images/maquette-hotel-ordinateur.jpg" alt="" loading="lazy" width="1000" height="625"></div></div><div class="base"></div></div>
-        <div class="ph3"><div class="vp"><img src="images/maquette-restaurant-mobile.jpg" alt="" loading="lazy" width="360" height="760"></div></div>
+        <div class="lap"><div class="scr"><div class="vp"><img src="images/maquette-hotel-ordinateur.jpg" srcset="images/maquette-hotel-ordinateur.webp" alt="" loading="lazy" width="1000" height="625"></div></div><div class="base"></div></div>
+        <div class="ph3"><div class="vp"><img src="images/maquette-restaurant-mobile.jpg" srcset="images/maquette-restaurant-mobile.webp" alt="" loading="lazy" width="360" height="760"></div></div>
         <div class="card3"><svg><use href="#sparkle"/></svg><span>Design sur mesure<small>Ordinateur et mobile</small></span></div>
       </div>
     </div>
@@ -833,7 +833,7 @@ h1 em,h2 em,h3 em,.big em,.hv .say p em{font-family:"Playfair Display",Georgia,s
     <div class="wrap c-grid">
       <div>
         <!-- Photo 3 · Contact : images/photo-contact.jpg -->
-        <div class="c-photo"><img src="images/photo-contact.jpg" width="500" height="500" alt="La fondatrice de Jëfya au travail" loading="lazy"></div>
+        <div class="c-photo"><img src="images/photo-contact.jpg" srcset="images/photo-contact-250.webp 250w, images/photo-contact.webp 500w" sizes="(min-width:960px) 210px, 180px" width="500" height="500" alt="La fondatrice de Jëfya au travail" loading="lazy"></div>
         <span class="label">Travaillons ensemble</span>
         <h2 id="ct-title">Créons ensemble quelque chose de <em>beau.</em></h2>
         <p class="lead">Un projet en tête&nbsp;? Parlez-nous de votre activité, nous vous répondons rapidement.</p>
