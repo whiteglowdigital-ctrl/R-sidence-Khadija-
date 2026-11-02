@@ -478,6 +478,44 @@ h1 em,h2 em,h3 em,.big em,.hv .say p em{font-family:"Playfair Display",Georgia,s
 .socials a{width:42px;height:42px;border-radius:50%;border:1px solid var(--line-light);display:grid;place-items:center;color:#fff;transition:background .2s,color .2s,border-color .2s}
 .socials a:hover{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--ink)}
 .socials svg{width:18px;height:18px}
+
+/* ===== Finitions fluides (réactivité, mouvement, accessibilité) ===== */
+html{scroll-padding-top:96px}
+a,button,.btn,.burger,select,summary,label{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+/* Typographie : interlettrage selon la taille (serré en grand, neutre en petit) */
+body{letter-spacing:0;font-optical-sizing:auto}
+h1{letter-spacing:-.02em}
+h2{letter-spacing:-.015em}
+h3,h4{letter-spacing:-.005em}
+/* Retour instantané au toucher : l'élément réagit dès l'appui, pas au relâchement */
+.btn,.burger,.pj-cta,.plan .foot,.chips a,.alc a,.socials a,.pj .tag,.tlink,.back{transition-property:background,color,border-color,transform,box-shadow}
+.btn:active,.burger:active,.pj-cta:active,.plan .foot:active,.chips a:active,.socials a:active,.pj .tag:active{transform:scale(.97);transition-duration:.08s}
+.svc:active,.pj:active,.case-visual:active,.other:active{transform:scale(.985);transition-duration:.1s}
+.btn,.burger,.pj-cta,.plan .foot,.chips a,.socials a{transition-timing-function:cubic-bezier(.2,.7,.2,1)}
+/* Écrans tactiles : pas de survol « collé » après un appui */
+@media (hover:none){
+  .svc:hover,.pj:hover,.case-visual:hover,.other:hover{transform:none}
+  .case-visual:hover .browser{transform:none}
+  .btn:hover i{transform:none}
+}
+/* Menu mobile : s'ouvre depuis le bouton et se referme par le même chemin */
+.mnav{opacity:1;clip-path:circle(0px at calc(100% - 48px) calc(40px + env(safe-area-inset-top,0px)));transition:clip-path .55s cubic-bezier(.2,.7,.2,1),visibility 0s linear .55s}
+.mnav.open{clip-path:circle(150vmax at calc(100% - 48px) calc(40px + env(safe-area-inset-top,0px)));transition:clip-path .55s cubic-bezier(.2,.7,.2,1),visibility 0s}
+/* Matière : l'en-tête laisse passer le contenu, avec plus de netteté */
+.header.scrolled{backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%)}
+@media (prefers-reduced-motion:reduce){
+  .btn:active,.burger:active,.pj-cta:active,.plan .foot:active,.chips a:active,.socials a:active,.pj .tag:active,.svc:active,.pj:active,.case-visual:active,.other:active{transform:none}
+  .svc:hover,.pj:hover,.case-visual:hover,.other:hover,.case-visual:hover .browser,.btn:hover i{transform:none}
+  .mnav{clip-path:none;opacity:0;transition:opacity .2s ease,visibility .2s}
+  .mnav.open{clip-path:none;opacity:1}
+}
+@media (prefers-reduced-transparency:reduce){
+  .header.scrolled{background:var(--page);backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media (prefers-contrast:more){
+  .header.scrolled{background:var(--page);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 1px 0 var(--navy)}
+  .btn.light,.burger{border:1px solid var(--navy)}
+}
 </style>
 </head>
 <body>
@@ -946,6 +984,10 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
   items.forEach(function (el) { io.observe(el); });
 } else { items.forEach(function (el) { el.classList.add('in'); }); }
+
+// Écran d'ouverture : un toucher le saute (pas d'attente imposée)
+var splash = document.querySelector('.splash');
+if (splash) splash.addEventListener('click', function () { document.documentElement.classList.add('no-intro'); });
 
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
